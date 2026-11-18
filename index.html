@@ -366,7 +366,7 @@ textarea{min-height:96px;resize:vertical}
   <div class="detail-body">
     <div class="container">
       <div class="info subs" id="d-subs-box" hidden>
-          <h2><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Servicios incluidos</h2>
+          <h2><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span id="d-subs-title">Servicios incluidos</span></h2>
           <ul id="d-subs"></ul>
         </div>
       <div class="info-grid">
@@ -481,7 +481,7 @@ const SERVICIOS = [
   { id: "inmueble", nombre: "Compra segura de inmueble",
     corto: "Antes de entregar el inicial verificamos el título, las cargas y la titularidad. Luego realizamos el traspaso.",
     largo: "Revisamos el inmueble antes de que comprometas tu dinero, redactamos el contrato y llevamos el traspaso hasta que el título queda a tu nombre.",
-    req: ["Copia del certificado de título o del documento que muestra el vendedor", "Cédula del vendedor", "Promesa o contrato de venta, si existe", "Ubicación y datos del inmueble"],
+    req: ["Copia del certificado de título o del documento que muestra el vendedor", "Copia de la cédula del vendedor", "Copia de la cédula del comprador", "Promesa o contrato de venta, si existe", "Ubicación y datos del inmueble"],
     get: ["Informe de revisión legal del inmueble", "Certificación de estado jurídico (cargas y gravámenes)", "Contrato de compraventa", "Traspaso ante el Registro de Títulos y certificado de título a tu nombre"],
     tip: "Si el inmueble solo tiene acto de venta o no está deslindado, te explicamos cómo regularizarlo.",
     campos: [
@@ -532,6 +532,8 @@ const SERVICIOS = [
   { id: "contratos", nombre: "Redacción de contratos y documentos",
     corto: "Contratos de alquiler, actos de venta, poderes notariales y otros documentos. Atendemos a dominicanos en el exterior.",
     largo: "Redactamos el documento a la medida de lo acordado y lo legalizamos para que tenga plena validez, tanto si firmas aquí como desde el exterior.",
+    subTitulo: "Documentos que redactamos",
+    sub: ["Contratos de alquiler", "Acuerdos entre partes", "Pagaré notarial", "Finiquitos legales", "Poderes notariales y de representación", "Contratos de compraventa de inmuebles", "Entre otros documentos, según tu necesidad"],
     req: ["Cédula o pasaporte de cada parte", "Cédula del fiador o del apoderado, si lo hay", "Documento del bien: título, matrícula u otro", "Condiciones acordadas: montos, plazos y obligaciones"],
     get: ["Documento redactado a la medida", "Legalización de firmas por notario", "Orientación sobre el registro del depósito en el Banco Agrícola, en alquileres", "Orientación para apostillar o legalizar si firmas en el exterior"],
     tip: "También revisamos documentos que ya tengas antes de que los firmes.",
@@ -545,13 +547,14 @@ const SERVICIOS = [
   { id: "menor", nombre: "Autorización de viaje de menor",
     corto: "Permiso de salida del país para menores que viajan sin uno o ambos padres, con su legalización.",
     largo: "Preparamos la autorización de salida para que el menor viaje sin contratiempos en el aeropuerto, y te orientamos si uno de los padres no puede o no quiere firmar.",
-    req: ["Acta de nacimiento del menor", "Pasaporte del menor", "Cédula o pasaporte de ambos padres", "Cédula o pasaporte de la persona que lo acompaña, si no viaja con sus padres", "Datos del viaje: destino, fechas y motivo"],
+    req: ["Acta de nacimiento del menor", "Pasaporte del menor", "Cédula o pasaporte de ambos padres", "Cédula o pasaporte de la persona que lo acompaña, si no viaja con sus padres", "Visa del menor, si el país de destino la exige", "Visa del acompañante, si el país de destino la exige", "Datos del viaje: destino, fechas, aerolínea y motivo"],
     get: ["Autorización notarial de salida del menor", "Legalización ante la Procuraduría General de la República", "Orientación sobre la autorización judicial cuando uno de los padres no está disponible"],
     tip: "Si uno de los padres vive fuera, puede firmar la autorización desde su país de residencia.",
     campos: [
       { id: "viaja", label: "¿Con quién viaja el menor?", opts: ["Con la madre", "Con el padre", "Con otro familiar", "Con un tercero", "Solo"], req: true },
       { id: "destino", label: "Destino", req: true },
       { id: "fecha", label: "Fecha de salida", type: "date" },
+      { id: "aerolinea", label: "Aerolínea" },
       { id: "padres", label: "¿Ambos padres pueden firmar?", opts: ["Sí", "Uno vive fuera del país", "Uno no está localizable", "Uno se niega"], req: true }
     ] },
   { id: "extranjeria", nombre: "Extranjería",
@@ -676,6 +679,7 @@ function route() {
   $("d-get").replaceChildren(...s.get.map(t => el("li", { textContent: t })));
   $("d-tip").textContent = s.tip;
   $("d-subs-box").hidden = !s.sub;
+  $("d-subs-title").textContent = s.subTitulo || "Servicios incluidos";
   $("d-subs").replaceChildren(...(s.sub || []).map(t => el("li", { textContent: t })));
   $("done").hidden = true;
   buildForm(s);
