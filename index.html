@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lex Capital · Abogados, inmuebles y negocios</title>
-<meta name="description" content="Divorcios, traspasos de vehículos, creación de empresas, contratos de alquiler, poderes y compra segura de inmuebles en Santo Domingo. Solicita tu cotización o agenda tu cita.">
+<meta name="description" content="Creación de empresas, compra segura de inmuebles, divorcios, contratos, autorizaciones de viaje, extranjería y servicios para dominicanos en el exterior. Santo Domingo.">
 <meta property="og:title" content="Lex Capital · Abogados, inmuebles y negocios">
-<meta property="og:description" content="Trámites legales claros, desde tu celular o en nuestra oficina en Bellavista, Santo Domingo.">
+<meta property="og:description" content="Trámites legales claros, desde tu celular o en nuestra oficina en Bella Vista, Santo Domingo.">
 <meta property="og:image" content="img/lex-capital-perfil.png">
 <meta name="theme-color" content="#13213f">
 <link rel="icon" type="image/svg+xml" href="img/emblem.svg">
@@ -96,12 +96,13 @@ section.block{padding:84px 0}
 .sec-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);color:var(--navy)}
 .sec-head p{color:var(--muted)}
 
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.svc{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;text-decoration:none;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:1140px){.services{grid-template-columns:repeat(2,1fr)}}
+.svc{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px;text-decoration:none;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease}
 .svc:hover{box-shadow:0 18px 40px rgba(19,33,63,.10);transform:translateY(-3px);border-color:#cdd4e3}
 .svc .ico{width:54px;height:54px;border-radius:14px;background:#eef2fb;color:var(--navy);display:flex;align-items:center;justify-content:center}
 .svc .ico svg{width:28px;height:28px}
-.svc h3{font-size:1.4rem;color:var(--navy)}
+.svc h3{font-size:1.3rem;color:var(--navy)}
 .svc p{color:var(--muted);font-size:.97rem;flex:1}
 .svc .more{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--blue);font-size:.95rem}
 .svc .more svg{width:18px;height:18px;transition:transform .2s ease}
@@ -173,6 +174,8 @@ footer a:hover{color:#fff;text-decoration:underline}
 .info ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
 .info li{display:flex;gap:12px;align-items:flex-start}
 .info li::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--gold);margin-top:10px;flex-shrink:0;transform:rotate(45deg)}
+.info.subs{margin-bottom:22px}
+.info.subs ul{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
 .info.deliver{background:#f3f6fd;border-color:#d8e1f6}
 .info .tip{font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
 
@@ -220,7 +223,7 @@ textarea{min-height:96px;resize:vertical}
 @media (max-width:640px){
   body{font-size:16px}
   section.block{padding:60px 0}
-  .services,.steps,.info-grid,fieldset,.choice{grid-template-columns:1fr}
+  .services,.steps,.info-grid,fieldset,.choice,.info.subs ul{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
   .nav .container{min-height:66px}
   .logo svg{width:40px;height:40px}
@@ -243,7 +246,7 @@ textarea{min-height:96px;resize:vertical}
 
 <div class="topbar">
   <div class="container">
-    <a id="top-addr" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><span>Av. Rómulo Betancourt 297, Plaza Madelta 3, local 407, Bellavista</span></a>
+    <a id="top-addr" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><span>Av. Rómulo Betancourt 297, Plaza Madelta 3, local 407, Bella Vista</span></a>
     <a class="hide-sm wa-link" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-4-7.5L21 3l-1 4.2A9 9 0 0 1 21 12z"/></svg><span>Atención por WhatsApp</span></a>
   </div>
 </div>
@@ -269,21 +272,20 @@ textarea{min-height:96px;resize:vertical}
       <div>
         <span class="eyebrow">Santo Domingo, República Dominicana</span>
         <h1>Tus trámites legales, resueltos con <em>claridad</em> y sin vueltas.</h1>
-        <p class="lead">Divorcios, vehículos, empresas, alquileres, poderes e inmuebles. Te decimos qué necesitas, cuánto cuesta y qué recibes antes de empezar. Atendemos desde tu celular o en nuestra oficina.</p>
+        <p class="lead">Empresas, inmuebles, familia, contratos y extranjería. Te orientamos desde el primer contacto y te acompañamos hasta la entrega de tu documento, desde tu celular o en nuestra oficina.</p>
         <div class="ctas">
           <a class="btn btn-gold" href="#servicios">Ver servicios</a>
-          <a class="btn btn-line wa-link" target="_blank" rel="noopener" data-msg="cita">Agenda tu cita</a>
         </div>
       </div>
-      <aside class="hero-card" aria-label="Cómo te atendemos">
-        <h2>Te atendemos como prefieras</h2>
+      <aside class="hero-card" aria-label="Nuestro servicio">
+        <h2>Atención ágil, cercana y profesional</h2>
         <ul class="checks">
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Solicitud en línea en pocos minutos</span></li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Cotización clara antes de empezar</span></li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Citas presenciales o por videollamada</span></li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Atendemos a dominicanos en el exterior</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Respuesta rápida por WhatsApp</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Servicio express para trámites con fecha límite</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Citas en la oficina o por videollamada</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Asistencia a dominicanos residentes en el exterior y a extranjeros en el país</span></li>
         </ul>
-        <p class="addr">Oficina en Bellavista, Distrito Nacional. <a id="hero-map" target="_blank" rel="noopener">Ver ubicación</a></p>
       </aside>
     </div>
   </section>
@@ -293,7 +295,7 @@ textarea{min-height:96px;resize:vertical}
       <div class="sec-head">
         <span class="eyebrow">Servicios</span>
         <h2>Elige tu trámite</h2>
-        <p>En cada servicio verás los requisitos, lo que te entregamos al final y un formulario corto para pedir tu cotización o tu cita.</p>
+        <p>En cada servicio verás los requisitos, lo que te entregamos al final y un formulario corto para solicitar información o agendar tu cita.</p>
       </div>
       <div class="services" id="cards"></div>
     </div>
@@ -308,7 +310,7 @@ textarea{min-height:96px;resize:vertical}
       <div class="steps">
         <div class="step"><span class="num">01</span><h3>Nos cuentas tu caso</h3><p>Llenas el formulario del servicio desde tu celular o computadora.</p></div>
         <div class="step"><span class="num">02</span><h3>Te contactamos</h3><p>Un abogado revisa tu solicitud y te escribe por WhatsApp.</p></div>
-        <div class="step"><span class="num">03</span><h3>Cotización y cita</h3><p>Te damos el precio, los pasos y, si hace falta, agendamos una cita.</p></div>
+        <div class="step"><span class="num">03</span><h3>Orientación y cita</h3><p>Te explicamos el proceso y los honorarios y, si hace falta, agendamos una cita.</p></div>
         <div class="step"><span class="num">04</span><h3>Recibes tu documento</h3><p>Te entregamos el resultado final y te explicamos cada paso.</p></div>
       </div>
     </div>
@@ -317,7 +319,7 @@ textarea{min-height:96px;resize:vertical}
   <section class="block why">
     <div class="container">
       <div class="why-grid">
-        <div class="why-item"><h3>Precio claro</h3><p>Antes de empezar sabes cuánto cuesta y qué incluye. Sin cargos escondidos al final.</p></div>
+        <div class="why-item"><h3>Transparencia</h3><p>Desde el inicio conoces los requisitos, los pasos del proceso y los honorarios.</p></div>
         <div class="why-item"><h3>Seguimiento constante</h3><p>Te informamos de cada avance por WhatsApp, sin que tengas que estar llamando.</p></div>
         <div class="why-item"><h3>Respaldo profesional</h3><p>Cada documento lo revisa y lo firma un abogado antes de llegar a tus manos.</p></div>
       </div>
@@ -329,8 +331,8 @@ textarea{min-height:96px;resize:vertical}
       <div class="office">
         <div class="office-card">
           <span class="eyebrow">Nuestra oficina</span>
-          <h2>Visítanos en Bellavista</h2>
-          <p>Avenida Rómulo Betancourt, número 297, Plaza Madelta 3, local 407, Bellavista, Distrito Nacional.</p>
+          <h2>Visítanos en Bella Vista</h2>
+          <p>Avenida Rómulo Betancourt, número 297, Plaza Madelta 3, local 407, Bella Vista, Distrito Nacional.</p>
           <p>Las citas presenciales se coordinan por WhatsApp para atenderte sin esperas.</p>
           <div class="ctas">
             <a class="btn btn-wa wa-link" target="_blank" rel="noopener" data-msg="cita"><svg aria-hidden="true" viewBox="0 0 32 32"><use href="#wa"/></svg>Agenda tu cita</a>
@@ -340,7 +342,7 @@ textarea{min-height:96px;resize:vertical}
         <a class="map-link map" target="_blank" rel="noopener" aria-label="Abrir la ubicación de la oficina en Google Maps">
           <span class="pin"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
           <b>Plaza Madelta 3, local 407</b>
-          <span>Av. Rómulo Betancourt 297, Bellavista, Distrito Nacional</span>
+          <span>Av. Rómulo Betancourt 297, Bella Vista, Distrito Nacional</span>
           <u>Abrir en Google Maps</u>
         </a>
       </div>
@@ -363,6 +365,10 @@ textarea{min-height:96px;resize:vertical}
   </section>
   <div class="detail-body">
     <div class="container">
+      <div class="info subs" id="d-subs-box" hidden>
+          <h2><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Servicios incluidos</h2>
+          <ul id="d-subs"></ul>
+        </div>
       <div class="info-grid">
         <div class="info">
           <h2><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z"/><path d="M16 5h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2"/><path d="m9 13 2 2 4-4"/></svg>Requisitos</h2>
@@ -378,7 +384,7 @@ textarea{min-height:96px;resize:vertical}
 
       <div class="form-card">
         <h2>Tu solicitud</h2>
-        <p>Toma menos de dos minutos. Al final eliges si quieres una cotización o una cita.</p>
+        <p>Toma menos de dos minutos. Al final eliges si prefieres recibir información o agendar una cita.</p>
         <form id="form" novalidate></form>
         <div class="done" id="done" hidden>
           <h3>Tu solicitud está lista</h3>
@@ -413,7 +419,7 @@ textarea{min-height:96px;resize:vertical}
         <h4>Contacto</h4>
         <ul>
           <li>Escríbenos: <a class="wa-link" target="_blank" rel="noopener" id="foot-num"></a></li>
-          <li><a class="map" target="_blank" rel="noopener">Av. Rómulo Betancourt 297, Plaza Madelta 3, local 407, Bellavista, Distrito Nacional</a></li>
+          <li><a class="map" target="_blank" rel="noopener">Av. Rómulo Betancourt 297, Plaza Madelta 3, local 407, Bella Vista, Distrito Nacional</a></li>
         </ul>
       </div>
     </div>
@@ -435,7 +441,7 @@ const CONFIG = {
   marca: "Lex Capital",
   whatsapp: "18296519702",
   whatsappVisible: "(829) 651-9702",
-  mapa: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Plaza Madelta 3, Av. Rómulo Betancourt 297, Bellavista, Santo Domingo, República Dominicana")
+  mapa: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Plaza Madelta 3, Av. Rómulo Betancourt 297, Bella Vista, Santo Domingo, República Dominicana")
 };
 const MSG = {
   cita: "Hola, quiero agendar una cita con Lex Capital.",
@@ -443,12 +449,14 @@ const MSG = {
 };
 
 const I = {
-  divorcio: '<path d="M12 21s-7-4.4-9-9.2C1.6 8.3 3.8 4.5 7.5 4.5c2 0 3.4 1.2 4.5 2.6"/><path d="M12 21s7-4.4 9-9.2c1.4-3.5-.8-7.3-4.5-7.3-2 0-3.4 1.2-4.5 2.6"/><path d="m12 7.1-1.5 3.4 3 2-1.5 3.5"/>',
-  vehiculo: '<path d="M5 16V11l2-5h10l2 5v5"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19" r="1.6"/><circle cx="16.5" cy="19" r="1.6"/><path d="M5 11h14"/>',
   empresa: '<path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-5h6v5"/><path d="M9 11h.01M12 11h.01M15 11h.01"/>',
-  alquiler: '<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9"/><path d="m16 7 3 3"/><path d="m18 5 2 2"/>',
-  poder: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 16.5c1.5-2 2.5-2 3.5 0s2 2 3.5 0"/>',
-  inmueble: '<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="m9.5 15 2 2 3.5-3.5"/>'
+  inmueble: '<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="m9.5 15 2 2 3.5-3.5"/>',
+  divorcio: '<path d="M12 21s-7-4.4-9-9.2C1.6 8.3 3.8 4.5 7.5 4.5c2 0 3.4 1.2 4.5 2.6"/><path d="M12 21s7-4.4 9-9.2c1.4-3.5-.8-7.3-4.5-7.3-2 0-3.4 1.2-4.5 2.6"/><path d="m12 7.1-1.5 3.4 3 2-1.5 3.5"/>',
+  exterior: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 4 5.6 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.6-4-9s1.4-6.4 4-9z"/>',
+  contratos: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h3.5"/><path d="m15.5 15.5 2.5 2.5"/>',
+  menor: '<circle cx="9" cy="6.5" r="2.5"/><path d="M5.5 21v-6a3.5 3.5 0 0 1 7 0v6"/><path d="M14 13h7l-2.5-3M21 13l-2.5 3"/>',
+  extranjeria: '<rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16h6"/>',
+  vehiculo: '<path d="M5 16V11l2-5h10l2 5v5"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19" r="1.6"/><circle cx="16.5" cy="19" r="1.6"/><path d="M5 11h14"/>'
 };
 const SI_NO = ["Sí", "No", "No sé"];
 const BASE = [
@@ -457,78 +465,22 @@ const BASE = [
   { id: "lugar", label: "Ciudad o país donde estás", req: true }
 ];
 const SERVICIOS = [
-  { id: "divorcio", nombre: "Divorcio",
-    corto: "Por mutuo acuerdo o a solicitud de una de las partes. Te indicamos el camino más rápido según tu caso.",
-    largo: "Te acompañamos en todo el proceso, desde el acuerdo entre las partes hasta que el divorcio queda inscrito y tienes tu acta en la mano.",
-    req: ["Cédula o pasaporte de ambos cónyuges", "Acta de matrimonio", "Actas de nacimiento de los hijos menores, si los hay", "Relación de los bienes en común, si existen", "Acuerdo sobre custodia, visitas y manutención de los hijos, si aplica"],
-    get: ["Acto de estipulaciones y convenciones ante notario (en mutuo acuerdo)", "Sentencia de divorcio", "Pronunciamiento ante la Oficialía del Estado Civil", "Acta de divorcio a tu nombre"],
-    tip: "Si uno de los dos vive fuera del país, también se puede hacer mediante poder.",
-    campos: [
-      { id: "tipo", label: "¿Los dos están de acuerdo en divorciarse?", opts: ["Sí, los dos", "No, solo yo", "No estoy seguro"], req: true },
-      { id: "conyuge", label: "Nombre de tu esposo o esposa", req: true },
-      { id: "anio", label: "Año del matrimonio", type: "number", ph: "2015" },
-      { id: "donde", label: "¿Dónde se casaron?", ph: "Municipio u oficialía" },
-      { id: "hijos", label: "¿Tienen hijos menores de edad?", opts: ["No", "Sí, 1", "Sí, 2", "Sí, 3 o más"], req: true },
-      { id: "bienes", label: "¿Tienen bienes en común?", opts: SI_NO, req: true },
-      { id: "fuera", label: "¿Alguno vive fuera del país?", opts: ["No", "Sí"], req: true }
-    ] },
-  { id: "vehiculo", nombre: "Traspaso de vehículo",
-    corto: "Acto de venta y traspaso de matrícula. Verificamos que el vehículo esté libre antes de que pagues.",
-    largo: "Revisamos el vehículo antes de la compra, redactamos el acto de venta y te acompañamos hasta que la matrícula sale a nombre del nuevo dueño.",
-    req: ["Matrícula original del vehículo", "Cédula del vendedor y del comprador", "Acto de venta, si ya lo firmaron", "Datos del vehículo: marca, modelo, año y placa"],
-    get: ["Verificación de que el vehículo no tiene oposición", "Acto de venta notarizado", "Gestión del traspaso ante la DGII", "Matrícula a nombre del nuevo propietario"],
-    tip: "El impuesto de transferencia se paga en la DGII y se cotiza aparte de nuestros honorarios.",
-    campos: [
-      { id: "rol", label: "¿Eres el comprador o el vendedor?", opts: ["Comprador", "Vendedor"], req: true },
-      { id: "tipo", label: "Tipo de vehículo", opts: ["Carro", "Jeepeta", "Camioneta", "Motor", "Camión u otro"], req: true },
-      { id: "modelo", label: "Marca, modelo y año", req: true, ph: "Toyota Corolla 2018" },
-      { id: "placa", label: "Placa", ph: "A000000" },
-      { id: "precio", label: "Precio de venta (RD$)", type: "number" },
-      { id: "titular", label: "¿La matrícula está a nombre de quien vende?", opts: SI_NO, req: true },
-      { id: "deuda", label: "¿Tiene financiamiento u oposición?", opts: SI_NO, req: true }
-    ] },
-  { id: "empresa", nombre: "Crear tu empresa",
-    corto: "Nombre comercial, estatutos, registro mercantil y RNC. Tu negocio listo para operar y facturar.",
-    largo: "Formalizamos tu negocio de principio a fin: registramos el nombre, redactamos los documentos de la sociedad y la inscribimos para que puedas facturar.",
+  { id: "empresa", nombre: "Crea tu empresa",
+    corto: "Nombre comercial, estatutos, registro mercantil y RNC. Tu negocio formalizado y listo para operar.",
+    largo: "Formalizamos tu negocio de principio a fin: registramos el nombre, redactamos los documentos de la sociedad y la inscribimos para que pueda facturar.",
     req: ["Cédula o pasaporte de cada socio", "Tres opciones de nombre para la empresa", "Dirección donde operará", "Actividad a la que se dedicará", "Monto del capital y cómo se reparte entre los socios"],
     get: ["Certificado de nombre comercial (ONAPI)", "Estatutos sociales y acta de asamblea constitutiva", "Registro mercantil (Cámara de Comercio)", "RNC de la empresa (DGII)"],
-    tip: "Te orientamos sobre qué tipo de sociedad te conviene: SRL, EIRL u otra.",
+    tip: "Te orientamos sobre el tipo de sociedad que más te conviene: SRL, EIRL u otra.",
     campos: [
-      { id: "tipo", label: "Tipo de empresa", opts: ["SRL", "EIRL (un solo dueño)", "No sé, oriéntenme"], req: true },
+      { id: "tipo", label: "Tipo de empresa", opts: ["SRL", "EIRL (un solo dueño)", "No sé, necesito orientación"], req: true },
       { id: "nombres", label: "Opciones de nombre", req: true, full: true, ph: "Opción 1, opción 2, opción 3" },
       { id: "actividad", label: "¿A qué se dedicará?", req: true, full: true },
       { id: "socios", label: "Cantidad de socios", type: "number", req: true },
-      { id: "extranjero", label: "¿Algún socio es extranjero o vive fuera?", opts: ["No", "Sí"], req: true }
-    ] },
-  { id: "alquiler", nombre: "Contrato de alquiler",
-    corto: "Contrato de vivienda o local comercial hecho a tu medida, que protege a propietario e inquilino.",
-    largo: "Redactamos un contrato claro, con las condiciones que acordaron, y lo legalizamos para que tenga plena validez.",
-    req: ["Cédula del propietario y del inquilino", "Cédula del fiador, si lo hay", "Documento de propiedad del inmueble", "Monto del alquiler, depósitos y duración acordados"],
-    get: ["Contrato de alquiler redactado a la medida", "Legalización de firmas por notario", "Orientación sobre el registro del depósito en el Banco Agrícola"],
-    tip: "También revisamos contratos que ya tengas antes de que los firmes.",
-    campos: [
-      { id: "rol", label: "¿Eres propietario o inquilino?", opts: ["Propietario", "Inquilino"], req: true },
-      { id: "tipo", label: "Tipo de inmueble", opts: ["Vivienda", "Local comercial", "Otro"], req: true },
-      { id: "ubic", label: "Sector y ciudad del inmueble", req: true },
-      { id: "monto", label: "Alquiler mensual (RD$)", type: "number", req: true },
-      { id: "tiempo", label: "Duración", opts: ["6 meses", "1 año", "2 años", "Otra"], req: true },
-      { id: "depositos", label: "Depósitos acordados", opts: ["1", "2", "3", "Otro"] }
-    ] },
-  { id: "poder", nombre: "Poder notarial",
-    corto: "Para que alguien de tu confianza firme o gestione por ti. Atendemos dominicanos en el exterior.",
-    largo: "Preparamos el poder exacto para el trámite que necesitas, para que la persona que elijas pueda actuar en tu nombre sin contratiempos.",
-    req: ["Cédula o pasaporte de quien da el poder", "Cédula de quien lo recibe", "Descripción del trámite o bien para el que se otorga"],
-    get: ["Poder redactado para tu trámite específico", "Firma legalizada por notario", "Orientación para apostillarlo o legalizarlo si lo firmas en el exterior"],
-    tip: "Si estás fuera del país, te decimos cómo firmarlo allá para que tenga validez aquí.",
-    campos: [
-      { id: "donde", label: "¿Dónde está quien da el poder?", opts: ["República Dominicana", "Estados Unidos", "España", "Otro país"], req: true },
-      { id: "para", label: "¿Para qué es el poder?", opts: ["Vender un inmueble", "Comprar un inmueble", "Trámite de vehículo", "Banco o cobros", "Representación en un caso", "Otro"], req: true },
-      { id: "apoderado", label: "Nombre de quien recibirá el poder", req: true },
-      { id: "urgencia", label: "¿Para cuándo lo necesitas?", opts: ["Esta semana", "Este mes", "Sin prisa"], req: true }
+      { id: "extranjero", label: "¿Algún socio es extranjero o reside fuera?", opts: ["No", "Sí"], req: true }
     ] },
   { id: "inmueble", nombre: "Compra segura de inmueble",
-    corto: "Antes de dar el inicial revisamos el título, las cargas y quién es el dueño real. Luego hacemos el traspaso.",
-    largo: "Revisamos todo antes de que pongas tu dinero, redactamos el contrato y llevamos el traspaso hasta que el título queda a tu nombre.",
+    corto: "Antes de entregar el inicial verificamos el título, las cargas y la titularidad. Luego realizamos el traspaso.",
+    largo: "Revisamos el inmueble antes de que comprometas tu dinero, redactamos el contrato y llevamos el traspaso hasta que el título queda a tu nombre.",
     req: ["Copia del certificado de título o del documento que muestra el vendedor", "Cédula del vendedor", "Promesa o contrato de venta, si existe", "Ubicación y datos del inmueble"],
     get: ["Informe de revisión legal del inmueble", "Certificación de estado jurídico (cargas y gravámenes)", "Contrato de compraventa", "Traspaso ante el Registro de Títulos y certificado de título a tu nombre"],
     tip: "Si el inmueble solo tiene acto de venta o no está deslindado, te explicamos cómo regularizarlo.",
@@ -539,6 +491,103 @@ const SERVICIOS = [
       { id: "titulo", label: "¿Qué documento tiene el vendedor?", opts: ["Certificado de título", "Solo acto de venta", "Carta constancia", "No sé"], req: true },
       { id: "deslinde", label: "¿Está deslindado?", opts: SI_NO },
       { id: "precio", label: "Precio aproximado", ph: "RD$ o US$" }
+    ] },
+  { id: "divorcio", nombre: "Divorcio",
+    corto: "Por mutuo acuerdo o a solicitud de una de las partes, con orientación sobre la vía más adecuada para tu caso.",
+    largo: "Te acompañamos en todo el proceso, desde el acuerdo entre las partes hasta que el divorcio queda inscrito y tienes tu acta.",
+    req: ["Cédula o pasaporte de ambos cónyuges", "Acta de matrimonio", "Actas de nacimiento de los hijos menores, si los hay", "Relación de los bienes en común, si existen", "Acuerdo sobre custodia, visitas y manutención de los hijos, si aplica"],
+    get: ["Acto de estipulaciones y convenciones ante notario (en mutuo acuerdo)", "Sentencia de divorcio", "Pronunciamiento ante la Oficialía del Estado Civil", "Acta de divorcio"],
+    tip: "Si uno de los cónyuges reside fuera del país, el proceso puede hacerse mediante poder.",
+    campos: [
+      { id: "tipo", label: "¿Ambos están de acuerdo con el divorcio?", opts: ["Sí, ambos", "No, solo yo", "No estoy seguro"], req: true },
+      { id: "conyuge", label: "Nombre de tu esposo o esposa", req: true },
+      { id: "anio", label: "Año del matrimonio", type: "number", ph: "2015" },
+      { id: "donde", label: "¿Dónde se casaron?", ph: "Municipio u oficialía" },
+      { id: "hijos", label: "¿Tienen hijos menores de edad?", opts: ["No", "Sí, 1", "Sí, 2", "Sí, 3 o más"], req: true },
+      { id: "bienes", label: "¿Tienen bienes en común?", opts: SI_NO, req: true },
+      { id: "fuera", label: "¿Alguno reside fuera del país?", opts: ["No", "Sí"], req: true }
+    ] },
+  { id: "exterior", nombre: "Dominicanos en el exterior",
+    corto: "Gestionamos en el país tus trámites, bienes y documentos mientras resides fuera, sin que tengas que viajar.",
+    largo: "Si vives fuera, nos encargamos aquí de lo que necesites: tus documentos de identidad y del estado civil, tu nacionalidad, tus inmuebles y tu representación ante cualquier institución.",
+    sub: [
+      "Verificación legal de inmuebles antes de comprar desde el exterior",
+      "Compra, venta y traspaso de inmuebles mediante poder",
+      "Poderes de representación para trámites, bancos y bienes",
+      "Cédula por primera vez, renovación o actualización de datos ante la Junta Central Electoral",
+      "Actas de nacimiento, matrimonio y defunción, con su legalización o apostilla",
+      "Nacionalidad dominicana para hijos de dominicanos nacidos en el extranjero (transcripción del acta de nacimiento)",
+      "Rectificación de actas y corrección de datos",
+      "Herencias, determinación de herederos y bienes de familia"
+    ],
+    req: ["Pasaporte vigente y cédula dominicana, si la tienes", "Acta de nacimiento o del estado civil que corresponda", "Documentos del inmueble o del bien, si el trámite es sobre una propiedad", "Para hijos nacidos fuera: acta de nacimiento extranjera apostillada y documentos de los padres dominicanos"],
+    get: ["El documento o la gestión que solicitaste, listo y verificado", "Poder redactado para que puedas firmarlo en tu país de residencia", "Seguimiento de cada paso por WhatsApp o videollamada", "Envío de documentos originales cuando se requiera"],
+    tip: "Te indicamos dónde y cómo firmar en tu país para que el documento tenga validez aquí.",
+    campos: [
+      { id: "pais", label: "País donde resides", req: true },
+      { id: "tramite", label: "¿Qué necesitas?", opts: ["Verificar o comprar un inmueble", "Vender o traspasar un inmueble", "Poder de representación", "Cédula (primera vez o renovación)", "Actas del estado civil", "Nacionalidad para hijos nacidos fuera", "Rectificación de actas", "Herencia o bienes de familia", "Otro"], req: true },
+      { id: "cedula", label: "¿Tienes cédula dominicana?", opts: ["Sí, vigente", "Sí, vencida o desactualizada", "No"], req: true },
+      { id: "nacio", label: "¿Dónde naciste?", opts: ["En República Dominicana", "En el extranjero, de padres dominicanos"] }
+    ] },
+  { id: "contratos", nombre: "Redacción de contratos y documentos",
+    corto: "Contratos de alquiler, actos de venta, poderes notariales y otros documentos. Atendemos a dominicanos en el exterior.",
+    largo: "Redactamos el documento a la medida de lo acordado y lo legalizamos para que tenga plena validez, tanto si firmas aquí como desde el exterior.",
+    req: ["Cédula o pasaporte de cada parte", "Cédula del fiador o del apoderado, si lo hay", "Documento del bien: título, matrícula u otro", "Condiciones acordadas: montos, plazos y obligaciones"],
+    get: ["Documento redactado a la medida", "Legalización de firmas por notario", "Orientación sobre el registro del depósito en el Banco Agrícola, en alquileres", "Orientación para apostillar o legalizar si firmas en el exterior"],
+    tip: "También revisamos documentos que ya tengas antes de que los firmes.",
+    campos: [
+      { id: "doc", label: "Tipo de documento", opts: ["Contrato de alquiler", "Acto de venta", "Poder notarial", "Contrato de préstamo o reconocimiento de deuda", "Declaración jurada", "Otro"], req: true },
+      { id: "partes", label: "¿Quiénes firman?", full: true, ph: "Ejemplo: propietario e inquilino" },
+      { id: "bien", label: "Bien o asunto del documento", full: true, ph: "Ejemplo: apartamento en Naco, vehículo, gestión bancaria" },
+      { id: "monto", label: "Monto, si aplica", ph: "RD$ o US$" },
+      { id: "fuera", label: "¿Alguna parte reside fuera del país?", opts: ["No", "Sí"], req: true }
+    ] },
+  { id: "menor", nombre: "Autorización de viaje de menor",
+    corto: "Permiso de salida del país para menores que viajan sin uno o ambos padres, con su legalización.",
+    largo: "Preparamos la autorización de salida para que el menor viaje sin contratiempos en el aeropuerto, y te orientamos si uno de los padres no puede o no quiere firmar.",
+    req: ["Acta de nacimiento del menor", "Pasaporte del menor", "Cédula o pasaporte de ambos padres", "Cédula o pasaporte de la persona que lo acompaña, si no viaja con sus padres", "Datos del viaje: destino, fechas y motivo"],
+    get: ["Autorización notarial de salida del menor", "Legalización ante la Procuraduría General de la República", "Orientación sobre la autorización judicial cuando uno de los padres no está disponible"],
+    tip: "Si uno de los padres vive fuera, puede firmar la autorización desde su país de residencia.",
+    campos: [
+      { id: "viaja", label: "¿Con quién viaja el menor?", opts: ["Con la madre", "Con el padre", "Con otro familiar", "Con un tercero", "Solo"], req: true },
+      { id: "destino", label: "Destino", req: true },
+      { id: "fecha", label: "Fecha de salida", type: "date" },
+      { id: "padres", label: "¿Ambos padres pueden firmar?", opts: ["Sí", "Uno vive fuera del país", "Uno no está localizable", "Uno se niega"], req: true }
+    ] },
+  { id: "extranjeria", nombre: "Extranjería",
+    corto: "Residencia, renovaciones, naturalización e inversión para extranjeros que viven o desean establecerse en el país.",
+    largo: "Acompañamos a extranjeros en su proceso migratorio y en sus inversiones en República Dominicana, desde la documentación inicial hasta la obtención de su residencia.",
+    sub: [
+      "Orientación sobre la visa de residencia y sus requisitos",
+      "Solicitud y renovación de residencia temporal o permanente ante la Dirección General de Migración",
+      "Cambio de categoría migratoria",
+      "Naturalización",
+      "Traducción, legalización y apostilla de documentos extranjeros",
+      "Compra de inmuebles y constitución de empresas por extranjeros",
+      "Matrimonio con ciudadanos dominicanos"
+    ],
+    req: ["Pasaporte vigente", "Acta de nacimiento apostillada y traducida, si aplica", "Certificado de antecedentes penales del país de origen, apostillado", "Documentos que justifiquen la categoría: trabajo, inversión, familia o pensión"],
+    get: ["Expediente completo y revisado", "Acompañamiento ante la Dirección General de Migración", "Seguimiento hasta la entrega de tu carnet de residencia o del documento solicitado"],
+    tip: "Los requisitos varían según la nacionalidad y la categoría. Te indicamos los tuyos en la primera consulta.",
+    campos: [
+      { id: "nac", label: "Nacionalidad", req: true },
+      { id: "tramite", label: "¿Qué necesitas?", opts: ["Residencia por primera vez", "Renovación de residencia", "Cambio de categoría", "Naturalización", "Traducción o apostilla", "Comprar inmueble o crear empresa", "Otro"], req: true },
+      { id: "pais", label: "¿Estás en el país?", opts: ["Sí", "No"], req: true },
+      { id: "base", label: "Motivo principal", opts: ["Trabajo", "Inversión", "Familia o matrimonio", "Pensión o rentista", "Otro"] }
+    ] },
+  { id: "vehiculo", nombre: "Traspaso de vehículo",
+    corto: "Acto de venta y traspaso de matrícula, con verificación previa de que el vehículo está libre de oposición.",
+    largo: "Verificamos el vehículo antes de la compra, redactamos el acto de venta y te acompañamos hasta que la matrícula queda a nombre del nuevo propietario.",
+    req: ["Matrícula original del vehículo", "Cédula del vendedor y del comprador", "Acto de venta, si ya lo firmaron", "Datos del vehículo: marca, modelo, año y placa"],
+    get: ["Verificación de que el vehículo no tiene oposición", "Acto de venta notarizado", "Gestión del traspaso ante la DGII", "Matrícula a nombre del nuevo propietario"],
+    tip: "El impuesto de transferencia se paga en la DGII y es independiente de los honorarios.",
+    campos: [
+      { id: "rol", label: "¿Eres el comprador o el vendedor?", opts: ["Comprador", "Vendedor"], req: true },
+      { id: "tipo", label: "Tipo de vehículo", opts: ["Carro", "Jeepeta", "Camioneta", "Motor", "Camión u otro"], req: true },
+      { id: "modelo", label: "Marca, modelo y año", req: true, ph: "Toyota Corolla 2018" },
+      { id: "placa", label: "Placa", ph: "A000000" },
+      { id: "titular", label: "¿La matrícula está a nombre de quien vende?", opts: SI_NO, req: true },
+      { id: "deuda", label: "¿Tiene financiamiento u oposición?", opts: SI_NO, req: true }
     ] }
 ];
 
@@ -548,7 +597,7 @@ const svgIco = (k) => '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" s
 const waUrl = t => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(t);
 
 document.querySelectorAll(".wa-link").forEach(a => { a.href = waUrl(MSG[a.dataset.msg] || MSG.info); });
-document.querySelectorAll(".map, #top-addr, #hero-map").forEach(a => { a.href = CONFIG.mapa; });
+document.querySelectorAll(".map, #top-addr").forEach(a => { a.href = CONFIG.mapa; });
 $("foot-num").textContent = "WhatsApp " + CONFIG.whatsappVisible;
 $("year").textContent = new Date().getFullYear();
 
@@ -584,8 +633,8 @@ function buildForm(s) {
   const fs2 = el("fieldset", {}, [el("legend", { textContent: "Sobre tu caso" }), ...s.campos.map(c => control(s, c)), control(s, { id: "notas", label: "Cuéntanos algo más", type: "textarea", full: true })]);
   const choice = el("div", { className: "choice", role: "radiogroup" });
   choice.innerHTML =
-    '<label><input type="radio" name="accion" value="cotizar" checked><span class="dot"></span><span><b>Quiero una cotización</b><span class="s">Te enviamos el precio y los pasos por WhatsApp.</span></span></label>' +
-    '<label><input type="radio" name="accion" value="cita"><span class="dot"></span><span><b>Quiero agendar una cita</b><span class="s">En la oficina, por videollamada o por llamada.</span></span></label>';
+    '<label><input type="radio" name="accion" value="cotizar" checked><span class="dot"></span><span><b>Solicitar información y honorarios</b><span class="s">Te escribimos por WhatsApp con los pasos a seguir.</span></span></label>' +
+    '<label><input type="radio" name="accion" value="cita"><span class="dot"></span><span><b>Agendar una cita</b><span class="s">En la oficina, por videollamada o por llamada.</span></span></label>';
   const cita = el("div", { className: "f full", id: "cita-box" });
   const cita2 = el("div", { style: "display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px" }, [
     control(s, { id: "modalidad", label: "Tipo de cita", opts: ["Presencial en la oficina", "Videollamada", "Llamada telefónica"] }),
@@ -597,13 +646,13 @@ function buildForm(s) {
   const fs3 = el("fieldset", {}, [el("legend", { textContent: "¿Qué deseas?" }), choice, cita]);
   const err = el("p", { className: "err", id: "err", role: "alert" });
   const btn = el("button", { className: "btn btn-navy", type: "submit", id: "submit" });
-  btn.innerHTML = '<svg aria-hidden="true" viewBox="0 0 32 32"><use href="#wa"/></svg><span>Solicitar cotización</span>';
-  const actions = el("div", { className: "actions" }, [btn, el("span", { className: "note", textContent: "No se cobra nada en este paso." })]);
+  btn.innerHTML = '<svg aria-hidden="true" viewBox="0 0 32 32"><use href="#wa"/></svg><span>Enviar solicitud</span>';
+  const actions = el("div", { className: "actions" }, [btn, el("span", { className: "note", textContent: "Tus datos se usan solo para atender tu solicitud." })]);
   f.append(fs1, fs2, fs3, err, actions);
   choice.addEventListener("change", () => {
     const v = f.elements.accion.value;
     cita.hidden = v !== "cita";
-    btn.querySelector("span").textContent = v === "cita" ? "Agendar cita" : "Solicitar cotización";
+    btn.querySelector("span").textContent = v === "cita" ? "Agendar cita" : "Enviar solicitud";
   });
 }
 
@@ -626,6 +675,8 @@ function route() {
   $("d-req").replaceChildren(...s.req.map(t => el("li", { textContent: t })));
   $("d-get").replaceChildren(...s.get.map(t => el("li", { textContent: t })));
   $("d-tip").textContent = s.tip;
+  $("d-subs-box").hidden = !s.sub;
+  $("d-subs").replaceChildren(...(s.sub || []).map(t => el("li", { textContent: t })));
   $("done").hidden = true;
   buildForm(s);
   window.scrollTo(0, 0);
@@ -644,7 +695,7 @@ $("form").addEventListener("submit", e => {
   const accion = f.elements.accion.value;
   const campos = [...BASE, ...actual.campos, { id: "notas", label: "Comentarios" }];
   const lineas = [
-    (accion === "cita" ? "SOLICITUD DE CITA" : "SOLICITUD DE COTIZACIÓN") + " · " + actual.nombre,
+    (accion === "cita" ? "SOLICITUD DE CITA" : "SOLICITUD DE INFORMACIÓN") + " · " + actual.nombre,
     ""
   ];
   campos.forEach(c => {
