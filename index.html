@@ -3,161 +3,481 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lex Capital · Trámites legales en línea</title>
-<meta name="description" content="Divorcios, traspasos de vehículos, empresas, alquileres, poderes y compra segura de inmuebles. Llena tu solicitud y te contactamos por WhatsApp.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%232456e6%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2216%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22%3ELC%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Lex Capital · Abogados, inmuebles y negocios</title>
+<meta name="description" content="Divorcios, traspasos de vehículos, creación de empresas, contratos de alquiler, poderes y compra segura de inmuebles en Santo Domingo. Solicita tu cotización o agenda tu cita.">
+<meta property="og:title" content="Lex Capital · Abogados, inmuebles y negocios">
+<meta property="og:description" content="Trámites legales claros, desde tu celular o en nuestra oficina en Bellavista, Santo Domingo.">
+<meta property="og:image" content="img/lex-capital-perfil.png">
+<meta name="theme-color" content="#13213f">
+<link rel="icon" type="image/svg+xml" href="img/emblem.svg">
+<link rel="apple-touch-icon" href="img/lex-capital-icono.png">
+<link rel="preload" href="fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* Idea: mostrador de trámites. Un menú de servicios con código de color; cada uno abre su formulario corto y termina en WhatsApp. */
+@font-face{font-family:"Playfair Display";font-weight:600;font-display:swap;src:url(fonts/playfair-display-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Playfair Display";font-weight:700;font-display:swap;src:url(fonts/playfair-display-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format("woff2")}
+
+/* Idea: despacho sobrio. Franja azul marino con detalles dorados arriba y abajo; en medio, papel claro con tarjetas de servicio y fichas de requisitos. */
 :root{
-  --bg:#f5f7fc; --surface:#ffffff; --ink:#172033; --muted:#5b667a; --line:#dbe1ec;
-  --brand:#2456e6; --brand-ink:#ffffff; --accent:#f2643d; --soft:#e9effd;
-  --display:"Sora",system-ui,sans-serif; --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --navy:#13213f; --navy-2:#1a2c52; --gold:#c8a55a; --gold-ink:#8a6d2f;
+  --blue:#2456e6; --paper:#f6f7fb; --surface:#ffffff; --ink:#14203a; --muted:#5a6478; --line:#e1e5ee;
+  --wa:#25d366; --wa-ink:#0a2e18;
+  --display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --body:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   color-scheme:light;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0f1715; --surface:#17221f; --ink:#e8efec; --muted:#9db0a9; --line:#2b3a36;
-    --brand:#3fa596; --brand-ink:#08201c; --accent:#e0a84e; --soft:#1e2c28; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0f1420; --surface:#182033; --ink:#e9edf6; --muted:#a0abc0; --line:#2a3550;
-  --brand:#7ea2ff; --brand-ink:#0b1430; --accent:#ff9a80; --soft:#1e2942; color-scheme:dark;
-}
 *{box-sizing:border-box}
-html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5}
-.wrap{max-width:920px;margin:0 auto;padding:20px 16px 56px;display:flex;flex-direction:column;gap:20px}
-header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
-.brand{font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:-.01em}
-.brand small{display:block;font-family:var(--body);font-weight:500;font-size:.85rem;color:var(--muted);letter-spacing:0}
-.demo{font-size:.85rem;color:var(--muted);border:1px dashed var(--line);border-radius:8px;padding:8px 12px;background:var(--surface)}
-h1{font-family:var(--display);font-size:1.7rem;line-height:1.2;margin:0;text-wrap:balance;letter-spacing:-.02em}
-h2{font-family:var(--display);font-size:1.1rem;margin:0;text-wrap:balance}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;margin:0;text-wrap:balance;letter-spacing:-.01em}
 p{margin:0}
-.lead{color:var(--muted);max-width:60ch}
-.steps{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none;font-size:.92rem}
-.steps li{background:var(--soft);border-radius:999px;padding:5px 12px}
-.steps b{font-family:var(--display);font-weight:600;margin-right:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-.card{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
-.card p{color:var(--muted);font-size:.95rem;flex:1}
-.chip{align-self:flex-start;font-size:.8rem;border:1px dashed var(--line);border-radius:999px;padding:2px 10px;color:var(--muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 1rem var(--body);border-radius:8px;padding:11px 16px;border:1px solid transparent;cursor:pointer;text-decoration:none}
-.btn.primary{background:var(--brand);color:var(--brand-ink)}
-.btn.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
-.btn.wa{background:#1f8f55;color:#fff}
-.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.back{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:14px}
-.panel.head{border-top:6px solid var(--c)}
-.docs{margin:0;padding-left:20px;color:var(--muted);font-size:.95rem}
-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.f{display:flex;flex-direction:column;gap:5px}
-.f.full{grid-column:1/-1}
-label{font-weight:600;font-size:.92rem}
-input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%}
-textarea{min-height:84px;resize:vertical}
-.actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.note{font-size:.88rem;color:var(--muted)}
-pre{margin:0;white-space:pre-wrap;word-break:break-word;font:inherit;font-size:.95rem;background:var(--soft);border-radius:8px;padding:12px}
-.pay{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.pay div{border:1px dashed var(--line);border-radius:8px;padding:12px;font-size:.93rem}
-.pay b{display:block;font-family:var(--display);font-weight:600;margin-bottom:2px}
-.ok{color:var(--accent);font-weight:600}
-.wa-ico{width:22px;height:22px;flex-shrink:0}
-.wa-top{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#0b2e17;font-weight:600;text-decoration:none;border-radius:999px;padding:9px 16px;min-height:44px}
-.wa-float{position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:10}
-.wa-float .wa-ico{width:34px;height:34px}
-.foot{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:.92rem;display:flex;flex-direction:column;gap:4px}
-.foot a{color:var(--brand);font-weight:600}
-@media (min-width:900px){.wrap{max-width:1100px;padding:32px 24px 80px}h1{font-size:2.3rem}.grid{grid-template-columns:repeat(3,1fr)}}
+.container{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
 [hidden]{display:none!important}
+
+/* barra superior */
+.topbar{background:var(--navy);color:#cfd6e6;font-size:.86rem}
+.topbar .container{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:space-between;padding-top:8px;padding-bottom:8px}
+.topbar a{color:#cfd6e6;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.topbar a:hover{color:#fff}
+.topbar svg{width:15px;height:15px;flex-shrink:0;color:var(--gold)}
+
+/* navegación */
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.nav .container{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:46px;height:46px;flex-shrink:0}
+.logo b{display:block;font-family:var(--display);font-size:1.32rem;letter-spacing:.08em;color:var(--navy);line-height:1.1}
+.logo small{display:block;font-size:.66rem;font-weight:600;letter-spacing:.2em;color:var(--gold-ink);text-transform:uppercase}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a.lnk{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--muted)}
+.menu a.lnk:hover{color:var(--navy)}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 1rem var(--body);border-radius:10px;padding:13px 22px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;min-height:48px;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:20px;height:20px;flex-shrink:0}
+.btn-wa{background:var(--wa);color:var(--wa-ink);box-shadow:0 6px 18px rgba(37,211,102,.28)}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-line{border-color:rgba(255,255,255,.45);color:#fff;background:transparent}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+.btn-outline{border-color:var(--navy);color:var(--navy);background:#fff}
+
+/* portada */
+.hero{background:radial-gradient(1100px 500px at 85% -10%,#24407a 0%,transparent 60%),var(--navy);color:#fff;position:relative;overflow:hidden}
+.hero .container{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center;padding-top:76px;padding-bottom:84px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:28px;height:1.5px;background:var(--gold)}
+.hero h1{font-size:clamp(2.3rem,4.6vw,3.6rem);margin:18px 0 20px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lead{color:#cfd6e6;font-size:1.1rem;max-width:56ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(200,165,90,.35);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.hero-card h2{font-size:1.35rem}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.checks li{display:flex;gap:12px;align-items:flex-start;color:#dfe4ef}
+.checks svg{width:22px;height:22px;flex-shrink:0;color:var(--gold);margin-top:2px}
+.hero-card .addr{border-top:1px solid rgba(255,255,255,.14);padding-top:16px;font-size:.92rem;color:#cfd6e6}
+.hero-card .addr a{color:#fff;font-weight:600}
+
+/* secciones */
+section.block{padding:84px 0}
+.sec-head{display:flex;flex-direction:column;gap:12px;max-width:640px;margin-bottom:40px}
+.sec-head .eyebrow{color:var(--gold-ink)}
+.sec-head .eyebrow::before{background:var(--gold-ink)}
+.sec-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);color:var(--navy)}
+.sec-head p{color:var(--muted)}
+
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;text-decoration:none;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease}
+.svc:hover{box-shadow:0 18px 40px rgba(19,33,63,.10);transform:translateY(-3px);border-color:#cdd4e3}
+.svc .ico{width:54px;height:54px;border-radius:14px;background:#eef2fb;color:var(--navy);display:flex;align-items:center;justify-content:center}
+.svc .ico svg{width:28px;height:28px}
+.svc h3{font-size:1.4rem;color:var(--navy)}
+.svc p{color:var(--muted);font-size:.97rem;flex:1}
+.svc .more{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--blue);font-size:.95rem}
+.svc .more svg{width:18px;height:18px;transition:transform .2s ease}
+.svc:hover .more svg{transform:translateX(4px)}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:10px}
+.step .num{font-family:var(--display);font-size:2.2rem;color:var(--gold);line-height:1}
+.step h3{font-size:1.15rem;color:var(--navy);font-family:var(--body);font-weight:700;letter-spacing:0}
+.step p{color:var(--muted);font-size:.95rem}
+
+.why{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.why-item{display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:2px solid var(--gold)}
+.why-item h3{font-size:1.3rem;color:var(--navy)}
+.why-item p{color:var(--muted)}
+
+/* oficina */
+.office{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+.office-card{background:var(--navy);color:#fff;border-radius:18px;padding:36px;display:flex;flex-direction:column;gap:20px}
+.office-card h2{font-size:clamp(1.8rem,3vw,2.3rem)}
+.office-card p{color:#cfd6e6}
+.office-card .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto}
+.map-link{display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-height:280px;border-radius:18px;padding:30px;text-decoration:none;color:var(--navy);border:1px solid var(--line);
+  background:
+   linear-gradient(0deg,rgba(255,255,255,.94),rgba(255,255,255,.55) 55%,rgba(255,255,255,0)),
+   repeating-linear-gradient(90deg,transparent 0 58px,#e3e8f2 58px 60px),
+   repeating-linear-gradient(0deg,transparent 0 58px,#e3e8f2 58px 60px),
+   linear-gradient(115deg,transparent 46%,#d3dbeb 46% 50%,transparent 50%),
+   #f1f4fa}
+.map-link .pin{width:54px;height:54px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(19,33,63,.25)}
+.map-link .pin svg{width:28px;height:28px}
+.map-link b{font-size:1.1rem}
+.map-link span{color:var(--muted)}
+.map-link u{font-weight:700;color:var(--blue);text-underline-offset:4px}
+
+/* pie */
+footer{background:var(--navy);color:#b9c2d6;padding:56px 0 28px;font-size:.93rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+footer .logo b{color:#fff}
+footer .logo small{color:var(--gold)}
+footer h4{font-family:var(--body);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+footer a{color:#dfe4ef;text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+.foot-note{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:20px;font-size:.84rem;color:#8f9ab2;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* botón flotante */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;align-items:center;gap:10px;background:var(--wa);color:var(--wa-ink);font-weight:700;text-decoration:none;border-radius:999px;padding:0 20px 0 14px;height:58px;box-shadow:0 10px 26px rgba(0,0,0,.22)}
+.wa-float svg{width:30px;height:30px}
+
+/* detalle de servicio */
+.detail-hero{background:var(--navy);color:#fff}
+.detail-hero .container{padding-top:40px;padding-bottom:48px;display:flex;flex-direction:column;gap:18px}
+.back{display:inline-flex;align-items:center;gap:8px;color:#cfd6e6;text-decoration:none;font-weight:600;font-size:.95rem;align-self:flex-start}
+.back:hover{color:#fff}
+.back svg{width:18px;height:18px}
+.detail-hero .row{display:flex;gap:22px;align-items:center}
+.detail-hero .ico{width:72px;height:72px;border-radius:18px;background:rgba(200,165,90,.14);border:1px solid rgba(200,165,90,.4);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.detail-hero .ico svg{width:38px;height:38px}
+.detail-hero h1{font-size:clamp(2rem,4vw,3rem)}
+.detail-hero p{color:#cfd6e6;max-width:64ch;font-size:1.05rem}
+
+.detail-body{padding:48px 0 90px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:28px}
+.info{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.info h2{font-size:1.35rem;color:var(--navy);display:flex;align-items:center;gap:12px}
+.info h2 svg{width:26px;height:26px;color:var(--gold-ink);flex-shrink:0}
+.info ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.info li{display:flex;gap:12px;align-items:flex-start}
+.info li::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--gold);margin-top:10px;flex-shrink:0;transform:rotate(45deg)}
+.info.deliver{background:#f3f6fd;border-color:#d8e1f6}
+.info .tip{font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
+
+.form-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:22px}
+.form-card > h2{font-size:1.6rem;color:var(--navy)}
+.form-card > p{color:var(--muted);margin-top:-12px}
+form{display:flex;flex-direction:column;gap:26px}
+fieldset{border:0;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px 18px}
+legend{grid-column:1/-1;font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:14px;padding:0}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.full{grid-column:1/-1}
+label{font-weight:600;font-size:.93rem;color:var(--ink)}
+label .opt{font-weight:500;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:#fbfcfe;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;width:100%;min-height:48px;transition:border-color .15s ease,box-shadow .15s ease}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(36,86,230,.12)}
+textarea{min-height:96px;resize:vertical}
+.choice{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.choice label{position:relative;display:flex;gap:14px;align-items:flex-start;border:1.5px solid var(--line);border-radius:14px;padding:18px;cursor:pointer;background:#fbfcfe;font-weight:500}
+.choice input{position:absolute;opacity:0;width:1px;height:1px}
+.choice .dot{width:22px;height:22px;border-radius:50%;border:2px solid #b5bfd3;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center}
+.choice b{display:block;font-size:1.05rem;color:var(--navy)}
+.choice span.s{display:block;color:var(--muted);font-size:.9rem}
+.choice input:checked + .dot{border-color:var(--blue)}
+.choice input:checked + .dot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--blue)}
+.choice label:has(input:checked){border-color:var(--blue);background:#f3f6fd}
+.choice input:focus-visible + .dot{outline:3px solid var(--gold);outline-offset:3px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.note{font-size:.88rem;color:var(--muted)}
+.err{color:#b4233a;font-weight:600;font-size:.92rem}
+
+.done{background:#effaf3;border:1px solid #bfe8cd;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.done h3{font-family:var(--body);font-size:1.15rem;color:#145a32;letter-spacing:0}
+.done pre{margin:0;white-space:pre-wrap;word-break:break-word;font:inherit;font-size:.93rem;background:#fff;border:1px solid #d7eedf;border-radius:10px;padding:14px;color:var(--ink)}
+
+/* responsive */
+@media (max-width:980px){
+  .hero .container{grid-template-columns:1fr;padding-top:56px;padding-bottom:64px}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr;gap:24px}
+  .office{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .menu a.lnk{display:none}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  section.block{padding:60px 0}
+  .services,.steps,.info-grid,fieldset,.choice{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .nav .container{min-height:66px}
+  .logo svg{width:40px;height:40px}
+  .logo b{font-size:1.12rem}
+  .logo small{font-size:.58rem;letter-spacing:.14em}
+  .nav .btn{padding:10px 14px;font-size:.9rem;min-height:44px;white-space:nowrap}
+  .nav .logo small{display:none}
+  .nav .btn svg{display:none}
+  .hero-card{padding:22px}
+  .form-card{padding:22px}
+  .detail-hero .row{align-items:flex-start}
+  .detail-hero .ico{width:58px;height:58px}
+  .wa-float{padding:0;width:58px;justify-content:center}
+  .wa-float span{display:none}
+  .topbar .hide-sm{display:none}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <div class="brand" id="brand"></div>
-    <a class="wa-top" id="wa-top" href="https://wa.me/18296519703" target="_blank" rel="noopener"><svg class="wa-ico" aria-hidden="true" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span>(829) 651-9703</span></a>
-  </header>
 
-  <section id="hub" style="display:flex;flex-direction:column;gap:18px">
-    <h1>Resuelve tu trámite legal sin salir de casa</h1>
-    <p class="lead">Elige el servicio, llena un formulario corto y un abogado te contacta el mismo día. Si tu caso necesita cita presencial, la coordinamos contigo.</p>
-    <ol class="steps">
-      <li><b>1</b>Llenas tus datos</li>
-      <li><b>2</b>Nos llega por WhatsApp</li>
-      <li><b>3</b>Te confirmamos precio y pago</li>
-      <li><b>4</b>Recibes tu documento</li>
-    </ol>
-    <div class="grid" id="cards"></div>
-  </section>
-
-  <section id="svc" hidden style="display:flex;flex-direction:column;gap:16px">
-    <a class="back" href="#inicio">&larr; Todos los servicios</a>
-    <div class="panel head" id="svc-head">
-      <h1 id="svc-title"></h1>
-      <p class="lead" id="svc-desc"></p>
-      <div>
-        <h2>Documentos que te pediremos</h2>
-        <ul class="docs" id="svc-docs"></ul>
-        <p class="note">No los subas aquí. Nos los envías como foto por WhatsApp después de la solicitud.</p>
-      </div>
-    </div>
-    <div class="panel">
-      <h2>Tu solicitud</h2>
-      <form id="form" novalidate></form>
-    </div>
-    <div class="panel" id="result" hidden>
-      <h2>Revisa y envía</h2>
-      <pre id="summary"></pre>
-      <div class="actions">
-        <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener"><svg class="wa-ico" aria-hidden="true" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Enviar por WhatsApp</a>
-        <button class="btn ghost" id="copy" type="button">Copiar solicitud</button>
-        <span class="ok" id="copied" hidden>Copiada</span>
-      </div>
-      <p class="note">Si el botón no abre WhatsApp, copia la solicitud y envíala al <span id="wa-num"></span>.</p>
-      <h2>Formas de pago</h2>
-      <div class="pay">
-        <div><b>Transferencia</b>Te enviamos la cuenta al confirmar el precio. Mandas el comprobante por el mismo chat.</div>
-        <div><b>Tarjeta</b>Te enviamos un enlace de pago seguro por WhatsApp.</div>
-      </div>
-      <p class="note">El trabajo empieza cuando se confirma el pago. Ningún documento se entrega sin revisión de un abogado.</p>
-    </div>
-  </section>
-  <footer class="foot">
-    <p><b id="foot-brand"></b> · Abogados, inmuebles y negocios · República Dominicana</p>
-    <p>Escríbenos: <a href="https://wa.me/18296519703" target="_blank" rel="noopener">WhatsApp (829) 651-9703</a></p>
-  </footer>
+<div class="topbar">
+  <div class="container">
+    <a id="top-addr" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><span>Av. Rómulo Betancourt 297, Plaza Madelta 3, local 407, Bellavista</span></a>
+    <a class="hide-sm wa-link" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-4-7.5L21 3l-1 4.2A9 9 0 0 1 21 12z"/></svg><span>Atención por WhatsApp</span></a>
+  </div>
 </div>
-<a class="wa-float" href="https://wa.me/18296519703?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20legales" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="wa-ico" aria-hidden="true" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></a>
+
+<header class="nav">
+  <div class="container">
+    <a class="logo" href="#inicio" aria-label="Lex Capital, inicio">
+      <svg aria-hidden="true" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="#13213f"/><rect x="9" y="9" width="102" height="102" rx="16" fill="none" stroke="#c8a55a" stroke-width="2"/><path d="M60 22l4.2 4.2L60 30.4l-4.2-4.2z" fill="#c8a55a"/><text x="60" y="78" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-weight="700" font-size="52" fill="#ffffff" letter-spacing="-1.5">LC</text><path d="M38 91h44" stroke="#c8a55a" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span><b>LEX CAPITAL</b><small>Abogados · Inmuebles · Negocios</small></span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a class="lnk" href="#servicios">Servicios</a>
+      <a class="lnk" href="#como">Cómo trabajamos</a>
+      <a class="lnk" href="#oficina">Oficina</a>
+      <a class="btn btn-wa wa-link" target="_blank" rel="noopener" data-msg="cita"><svg aria-hidden="true" viewBox="0 0 32 32"><use href="#wa"/></svg>Agenda tu cita</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="container">
+      <div>
+        <span class="eyebrow">Santo Domingo, República Dominicana</span>
+        <h1>Tus trámites legales, resueltos con <em>claridad</em> y sin vueltas.</h1>
+        <p class="lead">Divorcios, vehículos, empresas, alquileres, poderes e inmuebles. Te decimos qué necesitas, cuánto cuesta y qué recibes antes de empezar. Atendemos desde tu celular o en nuestra oficina.</p>
+        <div class="ctas">
+          <a class="btn btn-gold" href="#servicios">Ver servicios</a>
+          <a class="btn btn-line wa-link" target="_blank" rel="noopener" data-msg="cita">Agenda tu cita</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Cómo te atendemos">
+        <h2>Te atendemos como prefieras</h2>
+        <ul class="checks">
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Solicitud en línea en pocos minutos</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Cotización clara antes de empezar</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Citas presenciales o por videollamada</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Atendemos a dominicanos en el exterior</span></li>
+        </ul>
+        <p class="addr">Oficina en Bellavista, Distrito Nacional. <a id="hero-map" target="_blank" rel="noopener">Ver ubicación</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="servicios">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Servicios</span>
+        <h2>Elige tu trámite</h2>
+        <p>En cada servicio verás los requisitos, lo que te entregamos al final y un formulario corto para pedir tu cotización o tu cita.</p>
+      </div>
+      <div class="services" id="cards"></div>
+    </div>
+  </section>
+
+  <section class="block" id="como" style="padding-top:0">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Cómo trabajamos</span>
+        <h2>De tu solicitud a tu documento</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num">01</span><h3>Nos cuentas tu caso</h3><p>Llenas el formulario del servicio desde tu celular o computadora.</p></div>
+        <div class="step"><span class="num">02</span><h3>Te contactamos</h3><p>Un abogado revisa tu solicitud y te escribe por WhatsApp.</p></div>
+        <div class="step"><span class="num">03</span><h3>Cotización y cita</h3><p>Te damos el precio, los pasos y, si hace falta, agendamos una cita.</p></div>
+        <div class="step"><span class="num">04</span><h3>Recibes tu documento</h3><p>Te entregamos el resultado final y te explicamos cada paso.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block why">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-item"><h3>Precio claro</h3><p>Antes de empezar sabes cuánto cuesta y qué incluye. Sin cargos escondidos al final.</p></div>
+        <div class="why-item"><h3>Seguimiento constante</h3><p>Te informamos de cada avance por WhatsApp, sin que tengas que estar llamando.</p></div>
+        <div class="why-item"><h3>Respaldo profesional</h3><p>Cada documento lo revisa y lo firma un abogado antes de llegar a tus manos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="oficina">
+    <div class="container">
+      <div class="office">
+        <div class="office-card">
+          <span class="eyebrow">Nuestra oficina</span>
+          <h2>Visítanos en Bellavista</h2>
+          <p>Avenida Rómulo Betancourt, número 297, Plaza Madelta 3, local 407, Bellavista, Distrito Nacional.</p>
+          <p>Las citas presenciales se coordinan por WhatsApp para atenderte sin esperas.</p>
+          <div class="ctas">
+            <a class="btn btn-wa wa-link" target="_blank" rel="noopener" data-msg="cita"><svg aria-hidden="true" viewBox="0 0 32 32"><use href="#wa"/></svg>Agenda tu cita</a>
+            <a class="btn btn-line map" target="_blank" rel="noopener">Cómo llegar</a>
+          </div>
+        </div>
+        <a class="map-link map" target="_blank" rel="noopener" aria-label="Abrir la ubicación de la oficina en Google Maps">
+          <span class="pin"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+          <b>Plaza Madelta 3, local 407</b>
+          <span>Av. Rómulo Betancourt 297, Bellavista, Distrito Nacional</span>
+          <u>Abrir en Google Maps</u>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="detail" hidden>
+  <section class="detail-hero">
+    <div class="container">
+      <a class="back" href="#servicios"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Todos los servicios</a>
+      <div class="row">
+        <span class="ico" id="d-ico"></span>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <h1 id="d-title"></h1>
+          <p id="d-desc"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="detail-body">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info">
+          <h2><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z"/><path d="M16 5h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2"/><path d="m9 13 2 2 4-4"/></svg>Requisitos</h2>
+          <ul id="d-req"></ul>
+          <p class="tip">No tienes que subirlos aquí. Cuando te contactemos nos los envías por WhatsApp o los traes a la cita.</p>
+        </div>
+        <div class="info deliver">
+          <h2><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><circle cx="12" cy="14" r="2.5"/><path d="m10.5 16-1 4 2.5-1.2 2.5 1.2-1-4"/></svg>Lo que recibes</h2>
+          <ul id="d-get"></ul>
+          <p class="tip" id="d-tip"></p>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h2>Tu solicitud</h2>
+        <p>Toma menos de dos minutos. Al final eliges si quieres una cotización o una cita.</p>
+        <form id="form" novalidate></form>
+        <div class="done" id="done" hidden>
+          <h3>Tu solicitud está lista</h3>
+          <p>Se abrió WhatsApp con tus datos. Solo toca enviar. Si no se abrió, usa el botón de abajo.</p>
+          <pre id="summary"></pre>
+          <div class="actions">
+            <a class="btn btn-wa" id="wa-send" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 32 32"><use href="#wa"/></svg>Enviar por WhatsApp</a>
+            <button class="btn btn-outline" id="copy" type="button">Copiar solicitud</button>
+            <span class="note" id="copied" role="status"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <a class="logo" href="#inicio" aria-label="Lex Capital, inicio">
+          <svg aria-hidden="true" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="#1a2c52"/><rect x="9" y="9" width="102" height="102" rx="16" fill="none" stroke="#c8a55a" stroke-width="2"/><path d="M60 22l4.2 4.2L60 30.4l-4.2-4.2z" fill="#c8a55a"/><text x="60" y="78" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-weight="700" font-size="52" fill="#ffffff" letter-spacing="-1.5">LC</text><path d="M38 91h44" stroke="#c8a55a" stroke-width="2.6" stroke-linecap="round"/></svg>
+          <span><b>LEX CAPITAL</b><small>Abogados · Inmuebles · Negocios</small></span>
+        </a>
+        <p>Trámites legales claros para personas, familias y negocios.</p>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <ul id="foot-svc"></ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>Escríbenos: <a class="wa-link" target="_blank" rel="noopener" id="foot-num"></a></li>
+          <li><a class="map" target="_blank" rel="noopener">Av. Rómulo Betancourt 297, Plaza Madelta 3, local 407, Bellavista, Distrito Nacional</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>© <span id="year"></span> Lex Capital</span>
+      <span>La información de esta página es orientativa y no sustituye la asesoría de un abogado sobre tu caso.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float wa-link" target="_blank" rel="noopener" data-msg="info" aria-label="Escríbenos por WhatsApp"><svg aria-hidden="true" viewBox="0 0 32 32"><use href="#wa"/></svg><span>Escríbenos</span></a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></symbol>
+</svg>
 
 <script>
-const CONFIG = { marca: "Lex Capital", lema: "Abogados, inmuebles y negocios", whatsapp: "18296519703", whatsappVisible: "(829) 651-9703" };
+const CONFIG = {
+  marca: "Lex Capital",
+  whatsapp: "18296519702",
+  whatsappVisible: "(829) 651-9702",
+  mapa: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Plaza Madelta 3, Av. Rómulo Betancourt 297, Bellavista, Santo Domingo, República Dominicana")
+};
+const MSG = {
+  cita: "Hola, quiero agendar una cita con Lex Capital.",
+  info: "Hola, quiero información sobre sus servicios legales."
+};
 
+const I = {
+  divorcio: '<path d="M12 21s-7-4.4-9-9.2C1.6 8.3 3.8 4.5 7.5 4.5c2 0 3.4 1.2 4.5 2.6"/><path d="M12 21s7-4.4 9-9.2c1.4-3.5-.8-7.3-4.5-7.3-2 0-3.4 1.2-4.5 2.6"/><path d="m12 7.1-1.5 3.4 3 2-1.5 3.5"/>',
+  vehiculo: '<path d="M5 16V11l2-5h10l2 5v5"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19" r="1.6"/><circle cx="16.5" cy="19" r="1.6"/><path d="M5 11h14"/>',
+  empresa: '<path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-5h6v5"/><path d="M9 11h.01M12 11h.01M15 11h.01"/>',
+  alquiler: '<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9"/><path d="m16 7 3 3"/><path d="m18 5 2 2"/>',
+  poder: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 16.5c1.5-2 2.5-2 3.5 0s2 2 3.5 0"/>',
+  inmueble: '<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="m9.5 15 2 2 3.5-3.5"/>'
+};
 const SI_NO = ["Sí", "No", "No sé"];
 const BASE = [
-  { id: "nombre", label: "Tu nombre completo", req: true },
-  { id: "tel", label: "Tu WhatsApp", type: "tel", req: true, ph: "809 000 0000" },
+  { id: "nombre", label: "Nombre completo", req: true, ac: "name" },
+  { id: "tel", label: "Tu WhatsApp", type: "tel", req: true, ph: "829 000 0000", ac: "tel" },
   { id: "lugar", label: "Ciudad o país donde estás", req: true }
 ];
 const SERVICIOS = [
-  { id: "divorcio", color: "#b4536a", nombre: "Divorcio", corto: "Por mutuo acuerdo o a solicitud de uno. Te decimos el camino más rápido según tu caso.",
-    docs: ["Cédula o pasaporte de ambos", "Acta de matrimonio", "Actas de nacimiento de los hijos menores, si hay"],
+  { id: "divorcio", nombre: "Divorcio",
+    corto: "Por mutuo acuerdo o a solicitud de una de las partes. Te indicamos el camino más rápido según tu caso.",
+    largo: "Te acompañamos en todo el proceso, desde el acuerdo entre las partes hasta que el divorcio queda inscrito y tienes tu acta en la mano.",
+    req: ["Cédula o pasaporte de ambos cónyuges", "Acta de matrimonio", "Actas de nacimiento de los hijos menores, si los hay", "Relación de los bienes en común, si existen", "Acuerdo sobre custodia, visitas y manutención de los hijos, si aplica"],
+    get: ["Acto de estipulaciones y convenciones ante notario (en mutuo acuerdo)", "Sentencia de divorcio", "Pronunciamiento ante la Oficialía del Estado Civil", "Acta de divorcio a tu nombre"],
+    tip: "Si uno de los dos vive fuera del país, también se puede hacer mediante poder.",
     campos: [
       { id: "tipo", label: "¿Los dos están de acuerdo en divorciarse?", opts: ["Sí, los dos", "No, solo yo", "No estoy seguro"], req: true },
       { id: "conyuge", label: "Nombre de tu esposo o esposa", req: true },
-      { id: "fecha", label: "Año del matrimonio", type: "number", ph: "2015" },
+      { id: "anio", label: "Año del matrimonio", type: "number", ph: "2015" },
       { id: "donde", label: "¿Dónde se casaron?", ph: "Municipio u oficialía" },
       { id: "hijos", label: "¿Tienen hijos menores de edad?", opts: ["No", "Sí, 1", "Sí, 2", "Sí, 3 o más"], req: true },
       { id: "bienes", label: "¿Tienen bienes en común?", opts: SI_NO, req: true },
       { id: "fuera", label: "¿Alguno vive fuera del país?", opts: ["No", "Sí"], req: true }
     ] },
-  { id: "vehiculo", color: "#2f6fb3", nombre: "Traspaso de vehículo", corto: "Acto de venta y traspaso de matrícula. Revisamos que el vehículo no tenga oposición antes de que pagues.",
-    docs: ["Matrícula original", "Cédula del vendedor y del comprador", "Acto de venta, si ya lo firmaron"],
+  { id: "vehiculo", nombre: "Traspaso de vehículo",
+    corto: "Acto de venta y traspaso de matrícula. Verificamos que el vehículo esté libre antes de que pagues.",
+    largo: "Revisamos el vehículo antes de la compra, redactamos el acto de venta y te acompañamos hasta que la matrícula sale a nombre del nuevo dueño.",
+    req: ["Matrícula original del vehículo", "Cédula del vendedor y del comprador", "Acto de venta, si ya lo firmaron", "Datos del vehículo: marca, modelo, año y placa"],
+    get: ["Verificación de que el vehículo no tiene oposición", "Acto de venta notarizado", "Gestión del traspaso ante la DGII", "Matrícula a nombre del nuevo propietario"],
+    tip: "El impuesto de transferencia se paga en la DGII y se cotiza aparte de nuestros honorarios.",
     campos: [
       { id: "rol", label: "¿Eres el comprador o el vendedor?", opts: ["Comprador", "Vendedor"], req: true },
       { id: "tipo", label: "Tipo de vehículo", opts: ["Carro", "Jeepeta", "Camioneta", "Motor", "Camión u otro"], req: true },
@@ -167,36 +487,51 @@ const SERVICIOS = [
       { id: "titular", label: "¿La matrícula está a nombre de quien vende?", opts: SI_NO, req: true },
       { id: "deuda", label: "¿Tiene financiamiento u oposición?", opts: SI_NO, req: true }
     ] },
-  { id: "empresa", color: "#0f9bb0", nombre: "Crear tu empresa", corto: "Nombre comercial, estatutos, registro mercantil y RNC. Tu negocio queda listo para facturar.",
-    docs: ["Cédula o pasaporte de cada socio", "Dirección donde operará la empresa"],
+  { id: "empresa", nombre: "Crear tu empresa",
+    corto: "Nombre comercial, estatutos, registro mercantil y RNC. Tu negocio listo para operar y facturar.",
+    largo: "Formalizamos tu negocio de principio a fin: registramos el nombre, redactamos los documentos de la sociedad y la inscribimos para que puedas facturar.",
+    req: ["Cédula o pasaporte de cada socio", "Tres opciones de nombre para la empresa", "Dirección donde operará", "Actividad a la que se dedicará", "Monto del capital y cómo se reparte entre los socios"],
+    get: ["Certificado de nombre comercial (ONAPI)", "Estatutos sociales y acta de asamblea constitutiva", "Registro mercantil (Cámara de Comercio)", "RNC de la empresa (DGII)"],
+    tip: "Te orientamos sobre qué tipo de sociedad te conviene: SRL, EIRL u otra.",
     campos: [
       { id: "tipo", label: "Tipo de empresa", opts: ["SRL", "EIRL (un solo dueño)", "No sé, oriéntenme"], req: true },
-      { id: "nombres", label: "Tres opciones de nombre", req: true, full: true, ph: "Opción 1, opción 2, opción 3" },
+      { id: "nombres", label: "Opciones de nombre", req: true, full: true, ph: "Opción 1, opción 2, opción 3" },
       { id: "actividad", label: "¿A qué se dedicará?", req: true, full: true },
       { id: "socios", label: "Cantidad de socios", type: "number", req: true },
       { id: "extranjero", label: "¿Algún socio es extranjero o vive fuera?", opts: ["No", "Sí"], req: true }
     ] },
-  { id: "alquiler", color: "#b97a1e", nombre: "Contrato de alquiler", corto: "Contrato de vivienda o local hecho a tu medida, listo para firmar y legalizar.",
-    docs: ["Cédula del propietario y del inquilino", "Cédula del fiador, si hay"],
+  { id: "alquiler", nombre: "Contrato de alquiler",
+    corto: "Contrato de vivienda o local comercial hecho a tu medida, que protege a propietario e inquilino.",
+    largo: "Redactamos un contrato claro, con las condiciones que acordaron, y lo legalizamos para que tenga plena validez.",
+    req: ["Cédula del propietario y del inquilino", "Cédula del fiador, si lo hay", "Documento de propiedad del inmueble", "Monto del alquiler, depósitos y duración acordados"],
+    get: ["Contrato de alquiler redactado a la medida", "Legalización de firmas por notario", "Orientación sobre el registro del depósito en el Banco Agrícola"],
+    tip: "También revisamos contratos que ya tengas antes de que los firmes.",
     campos: [
       { id: "rol", label: "¿Eres propietario o inquilino?", opts: ["Propietario", "Inquilino"], req: true },
       { id: "tipo", label: "Tipo de inmueble", opts: ["Vivienda", "Local comercial", "Otro"], req: true },
       { id: "ubic", label: "Sector y ciudad del inmueble", req: true },
       { id: "monto", label: "Alquiler mensual (RD$)", type: "number", req: true },
       { id: "tiempo", label: "Duración", opts: ["6 meses", "1 año", "2 años", "Otra"], req: true },
-      { id: "depositos", label: "Depósitos acordados", opts: ["1", "2", "3", "Otro"] },
-      { id: "inicio", label: "Fecha de inicio", type: "date" }
+      { id: "depositos", label: "Depósitos acordados", opts: ["1", "2", "3", "Otro"] }
     ] },
-  { id: "poder", color: "#6b55b5", nombre: "Poder notarial", corto: "Para que alguien de tu confianza firme o gestione por ti. Atendemos dominicanos en el exterior.",
-    docs: ["Cédula o pasaporte de quien da el poder", "Cédula de quien lo recibe"],
+  { id: "poder", nombre: "Poder notarial",
+    corto: "Para que alguien de tu confianza firme o gestione por ti. Atendemos dominicanos en el exterior.",
+    largo: "Preparamos el poder exacto para el trámite que necesitas, para que la persona que elijas pueda actuar en tu nombre sin contratiempos.",
+    req: ["Cédula o pasaporte de quien da el poder", "Cédula de quien lo recibe", "Descripción del trámite o bien para el que se otorga"],
+    get: ["Poder redactado para tu trámite específico", "Firma legalizada por notario", "Orientación para apostillarlo o legalizarlo si lo firmas en el exterior"],
+    tip: "Si estás fuera del país, te decimos cómo firmarlo allá para que tenga validez aquí.",
     campos: [
       { id: "donde", label: "¿Dónde está quien da el poder?", opts: ["República Dominicana", "Estados Unidos", "España", "Otro país"], req: true },
       { id: "para", label: "¿Para qué es el poder?", opts: ["Vender un inmueble", "Comprar un inmueble", "Trámite de vehículo", "Banco o cobros", "Representación en un caso", "Otro"], req: true },
       { id: "apoderado", label: "Nombre de quien recibirá el poder", req: true },
       { id: "urgencia", label: "¿Para cuándo lo necesitas?", opts: ["Esta semana", "Este mes", "Sin prisa"], req: true }
     ] },
-  { id: "inmueble", color: "#a8572f", nombre: "Compra segura de inmueble", corto: "Antes de dar el inicial revisamos el título, las cargas y quién es el dueño real. Luego hacemos el traspaso.",
-    docs: ["Copia del título o del acto de venta que te mostraron", "Cédula del vendedor, si la tienes", "Contrato o promesa de venta, si existe"],
+  { id: "inmueble", nombre: "Compra segura de inmueble",
+    corto: "Antes de dar el inicial revisamos el título, las cargas y quién es el dueño real. Luego hacemos el traspaso.",
+    largo: "Revisamos todo antes de que pongas tu dinero, redactamos el contrato y llevamos el traspaso hasta que el título queda a tu nombre.",
+    req: ["Copia del certificado de título o del documento que muestra el vendedor", "Cédula del vendedor", "Promesa o contrato de venta, si existe", "Ubicación y datos del inmueble"],
+    get: ["Informe de revisión legal del inmueble", "Certificación de estado jurídico (cargas y gravámenes)", "Contrato de compraventa", "Traspaso ante el Registro de Títulos y certificado de título a tu nombre"],
+    tip: "Si el inmueble solo tiene acto de venta o no está deslindado, te explicamos cómo regularizarlo.",
     campos: [
       { id: "rol", label: "¿Vas a comprar o a vender?", opts: ["Comprar", "Vender"], req: true },
       { id: "tipo", label: "Tipo de inmueble", opts: ["Solar", "Casa", "Apartamento", "Finca", "Local"], req: true },
@@ -206,94 +541,141 @@ const SERVICIOS = [
       { id: "precio", label: "Precio aproximado", ph: "RD$ o US$" }
     ] }
 ];
-const NOTAS = { id: "notas", label: "Cuéntanos algo más (opcional)", type: "textarea", full: true };
 
 const $ = id => document.getElementById(id);
 const el = (tag, props, kids) => { const n = document.createElement(tag); Object.assign(n, props || {}); (kids || []).forEach(k => n.append(k)); return n; };
+const svgIco = (k) => '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + I[k] + '</svg>';
+const waUrl = t => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(t);
 
-$("brand").append(CONFIG.marca, el("small", { textContent: CONFIG.lema }));
-$("wa-num").textContent = CONFIG.whatsappVisible;
-$("foot-brand").textContent = CONFIG.marca;
+document.querySelectorAll(".wa-link").forEach(a => { a.href = waUrl(MSG[a.dataset.msg] || MSG.info); });
+document.querySelectorAll(".map, #top-addr, #hero-map").forEach(a => { a.href = CONFIG.mapa; });
+$("foot-num").textContent = "WhatsApp " + CONFIG.whatsappVisible;
+$("year").textContent = new Date().getFullYear();
 
 SERVICIOS.forEach(s => {
-  const card = el("article", { className: "card" }, [
-    el("h2", { textContent: s.nombre }),
-    el("p", { textContent: s.corto }),
-    el("span", { className: "chip", textContent: "Precio fijo por definir" }),
-    el("a", { className: "btn primary", href: "#" + s.id, textContent: "Iniciar solicitud" })
-  ]);
-  card.style.setProperty("--c", s.color);
-  $("cards").append(card);
+  const a = el("a", { className: "svc", href: "#" + s.id });
+  a.innerHTML = '<span class="ico">' + svgIco(s.id) + '</span><h3></h3><p></p><span class="more">Ver requisitos y solicitar <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>';
+  a.querySelector("h3").textContent = s.nombre;
+  a.querySelector("p").textContent = s.corto;
+  $("cards").append(a);
+  $("foot-svc").append(el("li", {}, [el("a", { href: "#" + s.id, textContent: s.nombre })]));
 });
 
 let actual = null;
 
-function campo(s, c) {
+function control(s, c) {
   const id = s.id + "-" + c.id;
   let input;
-  if (c.opts) {
-    input = el("select", { id }, [el("option", { value: "", textContent: "Elige una opción" }), ...c.opts.map(o => el("option", { value: o, textContent: o }))]);
-  } else if (c.type === "textarea") {
-    input = el("textarea", { id });
-  } else {
-    input = el("input", { id, type: c.type || "text", placeholder: c.ph || "" });
-    if (c.type === "tel") input.autocomplete = "tel";
-    if (c.id === "nombre") input.autocomplete = "name";
-  }
-  input.required = !!c.req;
-  input.name = c.id;
-  return el("div", { className: "f" + (c.full ? " full" : "") }, [el("label", { htmlFor: id, textContent: c.label }), input]);
+  if (c.opts) input = el("select", { id }, [el("option", { value: "", textContent: "Elige una opción" }), ...c.opts.map(o => el("option", { value: o, textContent: o }))]);
+  else if (c.type === "textarea") input = el("textarea", { id });
+  else input = el("input", { id, type: c.type || "text", placeholder: c.ph || "" });
+  if (c.ac) input.autocomplete = c.ac;
+  if (c.type === "number") input.inputMode = "numeric";
+  input.name = c.id; input.required = !!c.req;
+  const lab = el("label", { htmlFor: id, textContent: c.label });
+  if (!c.req) lab.append(" ", el("span", { className: "opt", textContent: "(opcional)" }));
+  return el("div", { className: "f" + (c.full ? " full" : "") }, [lab, input]);
 }
 
-function mostrar() {
+function buildForm(s) {
+  const f = $("form");
+  f.replaceChildren();
+  const fs1 = el("fieldset", {}, [el("legend", { textContent: "Tus datos" }), ...BASE.map(c => control(s, c))]);
+  const fs2 = el("fieldset", {}, [el("legend", { textContent: "Sobre tu caso" }), ...s.campos.map(c => control(s, c)), control(s, { id: "notas", label: "Cuéntanos algo más", type: "textarea", full: true })]);
+  const choice = el("div", { className: "choice", role: "radiogroup" });
+  choice.innerHTML =
+    '<label><input type="radio" name="accion" value="cotizar" checked><span class="dot"></span><span><b>Quiero una cotización</b><span class="s">Te enviamos el precio y los pasos por WhatsApp.</span></span></label>' +
+    '<label><input type="radio" name="accion" value="cita"><span class="dot"></span><span><b>Quiero agendar una cita</b><span class="s">En la oficina, por videollamada o por llamada.</span></span></label>';
+  const cita = el("div", { className: "f full", id: "cita-box" });
+  const cita2 = el("div", { style: "display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px" }, [
+    control(s, { id: "modalidad", label: "Tipo de cita", opts: ["Presencial en la oficina", "Videollamada", "Llamada telefónica"] }),
+    control(s, { id: "dia", label: "Día preferido", type: "date" }),
+    control(s, { id: "hora", label: "Horario preferido", opts: ["Mañana", "Tarde"] })
+  ]);
+  cita.append(cita2);
+  cita.hidden = true;
+  const fs3 = el("fieldset", {}, [el("legend", { textContent: "¿Qué deseas?" }), choice, cita]);
+  const err = el("p", { className: "err", id: "err", role: "alert" });
+  const btn = el("button", { className: "btn btn-navy", type: "submit", id: "submit" });
+  btn.innerHTML = '<svg aria-hidden="true" viewBox="0 0 32 32"><use href="#wa"/></svg><span>Solicitar cotización</span>';
+  const actions = el("div", { className: "actions" }, [btn, el("span", { className: "note", textContent: "No se cobra nada en este paso." })]);
+  f.append(fs1, fs2, fs3, err, actions);
+  choice.addEventListener("change", () => {
+    const v = f.elements.accion.value;
+    cita.hidden = v !== "cita";
+    btn.querySelector("span").textContent = v === "cita" ? "Agendar cita" : "Solicitar cotización";
+  });
+}
+
+function route() {
   const id = location.hash.replace("#", "");
   const s = SERVICIOS.find(x => x.id === id);
   actual = s || null;
-  $("hub").hidden = !!s;
-  $("svc").hidden = !s;
-  $("result").hidden = true;
-  if (!s) return;
-  $("svc-head").style.setProperty("--c", s.color);
-  $("svc-title").textContent = s.nombre;
-  $("svc-desc").textContent = s.corto;
-  $("svc-docs").replaceChildren(...s.docs.map(d => el("li", { textContent: d })));
-  const campos = [...BASE, ...s.campos, NOTAS];
-  $("form").replaceChildren(
-    ...campos.map(c => campo(s, c)),
-    el("div", { className: "actions" }, [
-      el("button", { className: "btn primary", type: "submit", textContent: "Revisar solicitud" }),
-      el("span", { className: "note", textContent: "No se cobra nada en este paso." })
-    ])
-  );
+  $("home").hidden = !!s;
+  $("detail").hidden = !s;
+  if (!s) {
+    if (id && document.getElementById(id)) document.getElementById(id).scrollIntoView();
+    else if (!id || id === "inicio") window.scrollTo(0, 0);
+    document.title = "Lex Capital · Abogados, inmuebles y negocios";
+    return;
+  }
+  document.title = s.nombre + " · Lex Capital";
+  $("d-ico").innerHTML = svgIco(s.id);
+  $("d-title").textContent = s.nombre;
+  $("d-desc").textContent = s.largo;
+  $("d-req").replaceChildren(...s.req.map(t => el("li", { textContent: t })));
+  $("d-get").replaceChildren(...s.get.map(t => el("li", { textContent: t })));
+  $("d-tip").textContent = s.tip;
+  $("done").hidden = true;
+  buildForm(s);
   window.scrollTo(0, 0);
 }
 
 $("form").addEventListener("submit", e => {
   e.preventDefault();
   const f = e.currentTarget;
-  if (!f.checkValidity()) { f.reportValidity(); return; }
-  const campos = [...BASE, ...actual.campos, NOTAS];
-  const lineas = ["Solicitud: " + actual.nombre.toUpperCase()];
+  const firstBad = [...f.elements].find(x => x.required && !x.value.trim());
+  if (firstBad) {
+    $("err").textContent = "Falta completar: " + (f.querySelector('label[for="' + firstBad.id + '"]')?.firstChild.textContent || "un campo obligatorio") + ".";
+    firstBad.focus();
+    return;
+  }
+  $("err").textContent = "";
+  const accion = f.elements.accion.value;
+  const campos = [...BASE, ...actual.campos, { id: "notas", label: "Comentarios" }];
+  const lineas = [
+    (accion === "cita" ? "SOLICITUD DE CITA" : "SOLICITUD DE COTIZACIÓN") + " · " + actual.nombre,
+    ""
+  ];
   campos.forEach(c => {
-    const v = (f.elements[c.id].value || "").trim();
-    if (v) lineas.push(c.label.replace(/\s*\(opcional\)/, "").replace(/[¿?]/g, "") + ": " + v);
+    const v = (f.elements[c.id]?.value || "").trim();
+    if (v) lineas.push("• " + c.label.replace(/[¿?]/g, "") + ": " + v);
   });
+  if (accion === "cita") {
+    ["modalidad", "dia", "hora"].forEach((k, i) => {
+      const v = (f.elements[k]?.value || "").trim();
+      if (v) lineas.push("• " + ["Tipo de cita", "Día preferido", "Horario"][i] + ": " + v);
+    });
+  }
   const texto = lineas.join("\n");
+  const url = waUrl(texto);
   $("summary").textContent = texto;
-  $("wa").href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(texto);
-  $("copied").hidden = true;
-  $("result").hidden = false;
-  $("result").scrollIntoView({ behavior: "smooth", block: "start" });
+  $("wa-send").href = url;
+  $("copied").textContent = "";
+  $("done").hidden = false;
+  const w = window.open(url, "_blank");
+  if (w) { try { w.opener = null; } catch (x) {} }
+  if (!w) $("done").scrollIntoView({ behavior: "smooth", block: "center" });
+  else $("done").scrollIntoView({ block: "center" });
 });
 
 $("copy").addEventListener("click", async () => {
-  try { await navigator.clipboard.writeText($("summary").textContent); $("copied").textContent = "Copiada"; }
+  try { await navigator.clipboard.writeText($("summary").textContent); $("copied").textContent = "Copiada."; }
   catch (err) { $("copied").textContent = "No se pudo copiar. Selecciona el texto y cópialo a mano."; }
-  $("copied").hidden = false;
 });
 
-window.addEventListener("hashchange", mostrar);
-mostrar();
+window.addEventListener("hashchange", route);
+route();
 </script>
 </body>
 </html>
