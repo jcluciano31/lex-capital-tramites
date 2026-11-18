@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lex Capital · Trámites legales en línea</title>
+<meta name="description" content="Divorcios, traspasos de vehículos, empresas, alquileres, poderes y compra segura de inmuebles. Llena tu solicitud y te contactamos por WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%232456e6%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2216%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22%3ELC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Idea: mostrador de trámites. Un menú de servicios con código de color; cada uno abre su formulario corto y termina en WhatsApp. */
+:root{
+  --bg:#f5f7fc; --surface:#ffffff; --ink:#172033; --muted:#5b667a; --line:#dbe1ec;
+  --brand:#2456e6; --brand-ink:#ffffff; --accent:#f2643d; --soft:#e9effd;
+  --display:"Sora",system-ui,sans-serif; --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1715; --surface:#17221f; --ink:#e8efec; --muted:#9db0a9; --line:#2b3a36;
+    --brand:#3fa596; --brand-ink:#08201c; --accent:#e0a84e; --soft:#1e2c28; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --surface:#182033; --ink:#e9edf6; --muted:#a0abc0; --line:#2a3550;
+  --brand:#7ea2ff; --brand-ink:#0b1430; --accent:#ff9a80; --soft:#1e2942; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5}
+.wrap{max-width:920px;margin:0 auto;padding:20px 16px 56px;display:flex;flex-direction:column;gap:20px}
+header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--body);font-weight:500;font-size:.85rem;color:var(--muted);letter-spacing:0}
+.demo{font-size:.85rem;color:var(--muted);border:1px dashed var(--line);border-radius:8px;padding:8px 12px;background:var(--surface)}
+h1{font-family:var(--display);font-size:1.7rem;line-height:1.2;margin:0;text-wrap:balance;letter-spacing:-.02em}
+h2{font-family:var(--display);font-size:1.1rem;margin:0;text-wrap:balance}
+p{margin:0}
+.lead{color:var(--muted);max-width:60ch}
+.steps{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none;font-size:.92rem}
+.steps li{background:var(--soft);border-radius:999px;padding:5px 12px}
+.steps b{font-family:var(--display);font-weight:600;margin-right:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.card p{color:var(--muted);font-size:.95rem;flex:1}
+.chip{align-self:flex-start;font-size:.8rem;border:1px dashed var(--line);border-radius:999px;padding:2px 10px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 1rem var(--body);border-radius:8px;padding:11px 16px;border:1px solid transparent;cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--brand);color:var(--brand-ink)}
+.btn.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn.wa{background:#1f8f55;color:#fff}
+.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.back{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.panel.head{border-top:6px solid var(--c)}
+.docs{margin:0;padding-left:20px;color:var(--muted);font-size:.95rem}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.f{display:flex;flex-direction:column;gap:5px}
+.f.full{grid-column:1/-1}
+label{font-weight:600;font-size:.92rem}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%}
+textarea{min-height:84px;resize:vertical}
+.actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.note{font-size:.88rem;color:var(--muted)}
+pre{margin:0;white-space:pre-wrap;word-break:break-word;font:inherit;font-size:.95rem;background:var(--soft);border-radius:8px;padding:12px}
+.pay{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.pay div{border:1px dashed var(--line);border-radius:8px;padding:12px;font-size:.93rem}
+.pay b{display:block;font-family:var(--display);font-weight:600;margin-bottom:2px}
+.ok{color:var(--accent);font-weight:600}
+.wa-ico{width:22px;height:22px;flex-shrink:0}
+.wa-top{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#0b2e17;font-weight:600;text-decoration:none;border-radius:999px;padding:9px 16px;min-height:44px}
+.wa-float{position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:10}
+.wa-float .wa-ico{width:34px;height:34px}
+.foot{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:.92rem;display:flex;flex-direction:column;gap:4px}
+.foot a{color:var(--brand);font-weight:600}
+@media (min-width:900px){.wrap{max-width:1100px;padding:32px 24px 80px}h1{font-size:2.3rem}.grid{grid-template-columns:repeat(3,1fr)}}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand" id="brand"></div>
+    <a class="wa-top" id="wa-top" href="https://wa.me/18296519703" target="_blank" rel="noopener"><svg class="wa-ico" aria-hidden="true" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span>(829) 651-9703</span></a>
+  </header>
+
+  <section id="hub" style="display:flex;flex-direction:column;gap:18px">
+    <h1>Resuelve tu trámite legal sin salir de casa</h1>
+    <p class="lead">Elige el servicio, llena un formulario corto y un abogado te contacta el mismo día. Si tu caso necesita cita presencial, la coordinamos contigo.</p>
+    <ol class="steps">
+      <li><b>1</b>Llenas tus datos</li>
+      <li><b>2</b>Nos llega por WhatsApp</li>
+      <li><b>3</b>Te confirmamos precio y pago</li>
+      <li><b>4</b>Recibes tu documento</li>
+    </ol>
+    <div class="grid" id="cards"></div>
+  </section>
+
+  <section id="svc" hidden style="display:flex;flex-direction:column;gap:16px">
+    <a class="back" href="#inicio">&larr; Todos los servicios</a>
+    <div class="panel head" id="svc-head">
+      <h1 id="svc-title"></h1>
+      <p class="lead" id="svc-desc"></p>
+      <div>
+        <h2>Documentos que te pediremos</h2>
+        <ul class="docs" id="svc-docs"></ul>
+        <p class="note">No los subas aquí. Nos los envías como foto por WhatsApp después de la solicitud.</p>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Tu solicitud</h2>
+      <form id="form" novalidate></form>
+    </div>
+    <div class="panel" id="result" hidden>
+      <h2>Revisa y envía</h2>
+      <pre id="summary"></pre>
+      <div class="actions">
+        <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener"><svg class="wa-ico" aria-hidden="true" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>Enviar por WhatsApp</a>
+        <button class="btn ghost" id="copy" type="button">Copiar solicitud</button>
+        <span class="ok" id="copied" hidden>Copiada</span>
+      </div>
+      <p class="note">Si el botón no abre WhatsApp, copia la solicitud y envíala al <span id="wa-num"></span>.</p>
+      <h2>Formas de pago</h2>
+      <div class="pay">
+        <div><b>Transferencia</b>Te enviamos la cuenta al confirmar el precio. Mandas el comprobante por el mismo chat.</div>
+        <div><b>Tarjeta</b>Te enviamos un enlace de pago seguro por WhatsApp.</div>
+      </div>
+      <p class="note">El trabajo empieza cuando se confirma el pago. Ningún documento se entrega sin revisión de un abogado.</p>
+    </div>
+  </section>
+  <footer class="foot">
+    <p><b id="foot-brand"></b> · Abogados, inmuebles y negocios · República Dominicana</p>
+    <p>Escríbenos: <a href="https://wa.me/18296519703" target="_blank" rel="noopener">WhatsApp (829) 651-9703</a></p>
+  </footer>
+</div>
+<a class="wa-float" href="https://wa.me/18296519703?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20legales" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="wa-ico" aria-hidden="true" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></a>
+
+<script>
+const CONFIG = { marca: "Lex Capital", lema: "Abogados, inmuebles y negocios", whatsapp: "18296519703", whatsappVisible: "(829) 651-9703" };
+
+const SI_NO = ["Sí", "No", "No sé"];
+const BASE = [
+  { id: "nombre", label: "Tu nombre completo", req: true },
+  { id: "tel", label: "Tu WhatsApp", type: "tel", req: true, ph: "809 000 0000" },
+  { id: "lugar", label: "Ciudad o país donde estás", req: true }
+];
+const SERVICIOS = [
+  { id: "divorcio", color: "#b4536a", nombre: "Divorcio", corto: "Por mutuo acuerdo o a solicitud de uno. Te decimos el camino más rápido según tu caso.",
+    docs: ["Cédula o pasaporte de ambos", "Acta de matrimonio", "Actas de nacimiento de los hijos menores, si hay"],
+    campos: [
+      { id: "tipo", label: "¿Los dos están de acuerdo en divorciarse?", opts: ["Sí, los dos", "No, solo yo", "No estoy seguro"], req: true },
+      { id: "conyuge", label: "Nombre de tu esposo o esposa", req: true },
+      { id: "fecha", label: "Año del matrimonio", type: "number", ph: "2015" },
+      { id: "donde", label: "¿Dónde se casaron?", ph: "Municipio u oficialía" },
+      { id: "hijos", label: "¿Tienen hijos menores de edad?", opts: ["No", "Sí, 1", "Sí, 2", "Sí, 3 o más"], req: true },
+      { id: "bienes", label: "¿Tienen bienes en común?", opts: SI_NO, req: true },
+      { id: "fuera", label: "¿Alguno vive fuera del país?", opts: ["No", "Sí"], req: true }
+    ] },
+  { id: "vehiculo", color: "#2f6fb3", nombre: "Traspaso de vehículo", corto: "Acto de venta y traspaso de matrícula. Revisamos que el vehículo no tenga oposición antes de que pagues.",
+    docs: ["Matrícula original", "Cédula del vendedor y del comprador", "Acto de venta, si ya lo firmaron"],
+    campos: [
+      { id: "rol", label: "¿Eres el comprador o el vendedor?", opts: ["Comprador", "Vendedor"], req: true },
+      { id: "tipo", label: "Tipo de vehículo", opts: ["Carro", "Jeepeta", "Camioneta", "Motor", "Camión u otro"], req: true },
+      { id: "modelo", label: "Marca, modelo y año", req: true, ph: "Toyota Corolla 2018" },
+      { id: "placa", label: "Placa", ph: "A000000" },
+      { id: "precio", label: "Precio de venta (RD$)", type: "number" },
+      { id: "titular", label: "¿La matrícula está a nombre de quien vende?", opts: SI_NO, req: true },
+      { id: "deuda", label: "¿Tiene financiamiento u oposición?", opts: SI_NO, req: true }
+    ] },
+  { id: "empresa", color: "#0f9bb0", nombre: "Crear tu empresa", corto: "Nombre comercial, estatutos, registro mercantil y RNC. Tu negocio queda listo para facturar.",
+    docs: ["Cédula o pasaporte de cada socio", "Dirección donde operará la empresa"],
+    campos: [
+      { id: "tipo", label: "Tipo de empresa", opts: ["SRL", "EIRL (un solo dueño)", "No sé, oriéntenme"], req: true },
+      { id: "nombres", label: "Tres opciones de nombre", req: true, full: true, ph: "Opción 1, opción 2, opción 3" },
+      { id: "actividad", label: "¿A qué se dedicará?", req: true, full: true },
+      { id: "socios", label: "Cantidad de socios", type: "number", req: true },
+      { id: "extranjero", label: "¿Algún socio es extranjero o vive fuera?", opts: ["No", "Sí"], req: true }
+    ] },
+  { id: "alquiler", color: "#b97a1e", nombre: "Contrato de alquiler", corto: "Contrato de vivienda o local hecho a tu medida, listo para firmar y legalizar.",
+    docs: ["Cédula del propietario y del inquilino", "Cédula del fiador, si hay"],
+    campos: [
+      { id: "rol", label: "¿Eres propietario o inquilino?", opts: ["Propietario", "Inquilino"], req: true },
+      { id: "tipo", label: "Tipo de inmueble", opts: ["Vivienda", "Local comercial", "Otro"], req: true },
+      { id: "ubic", label: "Sector y ciudad del inmueble", req: true },
+      { id: "monto", label: "Alquiler mensual (RD$)", type: "number", req: true },
+      { id: "tiempo", label: "Duración", opts: ["6 meses", "1 año", "2 años", "Otra"], req: true },
+      { id: "depositos", label: "Depósitos acordados", opts: ["1", "2", "3", "Otro"] },
+      { id: "inicio", label: "Fecha de inicio", type: "date" }
+    ] },
+  { id: "poder", color: "#6b55b5", nombre: "Poder notarial", corto: "Para que alguien de tu confianza firme o gestione por ti. Atendemos dominicanos en el exterior.",
+    docs: ["Cédula o pasaporte de quien da el poder", "Cédula de quien lo recibe"],
+    campos: [
+      { id: "donde", label: "¿Dónde está quien da el poder?", opts: ["República Dominicana", "Estados Unidos", "España", "Otro país"], req: true },
+      { id: "para", label: "¿Para qué es el poder?", opts: ["Vender un inmueble", "Comprar un inmueble", "Trámite de vehículo", "Banco o cobros", "Representación en un caso", "Otro"], req: true },
+      { id: "apoderado", label: "Nombre de quien recibirá el poder", req: true },
+      { id: "urgencia", label: "¿Para cuándo lo necesitas?", opts: ["Esta semana", "Este mes", "Sin prisa"], req: true }
+    ] },
+  { id: "inmueble", color: "#a8572f", nombre: "Compra segura de inmueble", corto: "Antes de dar el inicial revisamos el título, las cargas y quién es el dueño real. Luego hacemos el traspaso.",
+    docs: ["Copia del título o del acto de venta que te mostraron", "Cédula del vendedor, si la tienes", "Contrato o promesa de venta, si existe"],
+    campos: [
+      { id: "rol", label: "¿Vas a comprar o a vender?", opts: ["Comprar", "Vender"], req: true },
+      { id: "tipo", label: "Tipo de inmueble", opts: ["Solar", "Casa", "Apartamento", "Finca", "Local"], req: true },
+      { id: "ubic", label: "Ubicación", req: true, ph: "Sector, municipio, provincia" },
+      { id: "titulo", label: "¿Qué documento tiene el vendedor?", opts: ["Certificado de título", "Solo acto de venta", "Carta constancia", "No sé"], req: true },
+      { id: "deslinde", label: "¿Está deslindado?", opts: SI_NO },
+      { id: "precio", label: "Precio aproximado", ph: "RD$ o US$" }
+    ] }
+];
+const NOTAS = { id: "notas", label: "Cuéntanos algo más (opcional)", type: "textarea", full: true };
+
+const $ = id => document.getElementById(id);
+const el = (tag, props, kids) => { const n = document.createElement(tag); Object.assign(n, props || {}); (kids || []).forEach(k => n.append(k)); return n; };
+
+$("brand").append(CONFIG.marca, el("small", { textContent: CONFIG.lema }));
+$("wa-num").textContent = CONFIG.whatsappVisible;
+$("foot-brand").textContent = CONFIG.marca;
+
+SERVICIOS.forEach(s => {
+  const card = el("article", { className: "card" }, [
+    el("h2", { textContent: s.nombre }),
+    el("p", { textContent: s.corto }),
+    el("span", { className: "chip", textContent: "Precio fijo por definir" }),
+    el("a", { className: "btn primary", href: "#" + s.id, textContent: "Iniciar solicitud" })
+  ]);
+  card.style.setProperty("--c", s.color);
+  $("cards").append(card);
+});
+
+let actual = null;
+
+function campo(s, c) {
+  const id = s.id + "-" + c.id;
+  let input;
+  if (c.opts) {
+    input = el("select", { id }, [el("option", { value: "", textContent: "Elige una opción" }), ...c.opts.map(o => el("option", { value: o, textContent: o }))]);
+  } else if (c.type === "textarea") {
+    input = el("textarea", { id });
+  } else {
+    input = el("input", { id, type: c.type || "text", placeholder: c.ph || "" });
+    if (c.type === "tel") input.autocomplete = "tel";
+    if (c.id === "nombre") input.autocomplete = "name";
+  }
+  input.required = !!c.req;
+  input.name = c.id;
+  return el("div", { className: "f" + (c.full ? " full" : "") }, [el("label", { htmlFor: id, textContent: c.label }), input]);
+}
+
+function mostrar() {
+  const id = location.hash.replace("#", "");
+  const s = SERVICIOS.find(x => x.id === id);
+  actual = s || null;
+  $("hub").hidden = !!s;
+  $("svc").hidden = !s;
+  $("result").hidden = true;
+  if (!s) return;
+  $("svc-head").style.setProperty("--c", s.color);
+  $("svc-title").textContent = s.nombre;
+  $("svc-desc").textContent = s.corto;
+  $("svc-docs").replaceChildren(...s.docs.map(d => el("li", { textContent: d })));
+  const campos = [...BASE, ...s.campos, NOTAS];
+  $("form").replaceChildren(
+    ...campos.map(c => campo(s, c)),
+    el("div", { className: "actions" }, [
+      el("button", { className: "btn primary", type: "submit", textContent: "Revisar solicitud" }),
+      el("span", { className: "note", textContent: "No se cobra nada en este paso." })
+    ])
+  );
+  window.scrollTo(0, 0);
+}
+
+$("form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.currentTarget;
+  if (!f.checkValidity()) { f.reportValidity(); return; }
+  const campos = [...BASE, ...actual.campos, NOTAS];
+  const lineas = ["Solicitud: " + actual.nombre.toUpperCase()];
+  campos.forEach(c => {
+    const v = (f.elements[c.id].value || "").trim();
+    if (v) lineas.push(c.label.replace(/\s*\(opcional\)/, "").replace(/[¿?]/g, "") + ": " + v);
+  });
+  const texto = lineas.join("\n");
+  $("summary").textContent = texto;
+  $("wa").href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(texto);
+  $("copied").hidden = true;
+  $("result").hidden = false;
+  $("result").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+$("copy").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText($("summary").textContent); $("copied").textContent = "Copiada"; }
+  catch (err) { $("copied").textContent = "No se pudo copiar. Selecciona el texto y cópialo a mano."; }
+  $("copied").hidden = false;
+});
+
+window.addEventListener("hashchange", mostrar);
+mostrar();
+</script>
+</body>
+</html>
